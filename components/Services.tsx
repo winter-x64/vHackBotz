@@ -1,51 +1,14 @@
 "use client";
 
 import { motion, useScroll, useTransform } from "framer-motion";
-import { Code2, Cpu, Palette } from "lucide-react";
-import { Button } from "@/components/ui/button";
 import { useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { services, statsData } from "@/lib/constants";
 
 gsap.registerPlugin(ScrollTrigger);
 
-const services = [
-  {
-    icon: <Code2 className="h-10 w-10" />,
-    title: "Web Development",
-    description: "Full-stack web solutions with cutting-edge technologies.",
-    features: [
-      "Next.js & React Applications",
-      "Custom Web Platforms",
-      "E-commerce Solutions",
-      "Progressive Web Apps",
-    ],
-  },
-  {
-    icon: <Cpu className="h-10 w-10" />,
-    title: "Hardware Solutions",
-    description: "Custom hardware development and IoT solutions.",
-    features: [
-      "IoT Device Development",
-      "Embedded Systems",
-      "Hardware Prototyping",
-      "Circuit Design",
-    ],
-  },
-  {
-    icon: <Palette className="h-10 w-10" />,
-    title: "Design Services",
-    description: "Creative design solutions for digital products.",
-    features: [
-      "UI/UX Design",
-      "Brand Identity",
-      "Motion Graphics",
-      "3D Visualization",
-    ],
-  },
-];
-
-export default function ServicesSection() {
+export default function Services() {
   const containerRef = useRef(null);
   const { scrollYProgress } = useScroll({
     target: containerRef,
@@ -119,12 +82,6 @@ export default function ServicesSection() {
                   </motion.li>
                 ))}
               </ul>
-              <Button
-                variant="outline"
-                className="w-full gradient-border hover:text-primary transition-colors"
-              >
-                Learn More
-              </Button>
             </motion.div>
           ))}
         </div>
@@ -134,11 +91,7 @@ export default function ServicesSection() {
           className="mt-16 glass-card rounded-2xl p-8 text-center"
         >
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {[
-              { number: "100+", label: "Projects Delivered" },
-              { number: "50+", label: "Happy Clients" },
-              { number: "5+", label: "Years Experience" },
-            ].map((stat, index) => (
+            {statsData.map((stat, index) => (
               <motion.div
                 key={index}
                 initial={{ opacity: 0, scale: 0.5 }}

@@ -1,7 +1,7 @@
 "use client";
 
 import { Button } from "@/components/ui/button";
-import { motion, useScroll, useTransform } from "framer-motion";
+import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 import { useRef, useEffect } from "react";
 import { useInView } from "react-intersection-observer";
@@ -12,9 +12,6 @@ gsap.registerPlugin(ScrollTrigger);
 
 export default function HeroSection() {
   const containerRef = useRef(null);
-  const { scrollY } = useScroll();
-  const y = useTransform(scrollY, [0, 500], [0, -100]);
-  const opacity = useTransform(scrollY, [0, 300], [1, 0]);
   const [ref, inView] = useInView({
     threshold: 0.1,
     triggerOnce: true,
@@ -69,111 +66,73 @@ export default function HeroSection() {
       ref={containerRef}
       className="relative min-h-screen flex items-center justify-center pt-16 overflow-hidden"
     >
-      <motion.div
-        style={{ y, opacity }}
-        className="absolute inset-0 bg-linear-to-r from-primary/20 to-primary/10"
-      />
-      
-      <div className="absolute inset-0 bg-[url('https://images.pexels.com/photos/1181271/pexels-photo-1181271.jpeg?auto=compress&cs=tinysrgb&w=1920')] bg-cover bg-center opacity-5" />
+      <div className="absolute inset-0 bg-grid-pattern opacity-5" />
 
       <div className="container relative mx-auto px-4 py-16 sm:px-6 lg:px-8 z-10">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-          <motion.div
-            ref={ref}
-            initial="hidden"
-            animate={inView ? "visible" : "hidden"}
-            variants={{
-              hidden: { opacity: 0 },
-              visible: {
-                opacity: 1,
-                transition: {
-                  staggerChildren: 0.2,
-                },
+        <motion.div
+          ref={ref}
+          initial="hidden"
+          animate={inView ? "visible" : "hidden"}
+          variants={{
+            hidden: { opacity: 0 },
+            visible: {
+              opacity: 1,
+              transition: {
+                staggerChildren: 0.2,
               },
-            }}
-            className="text-center lg:text-left"
+            },
+          }}
+          className="text-center max-w-3xl mx-auto"
+        >
+          <h1 className="hero-title text-4xl md:text-5xl lg:text-6xl font-extrabold mb-6 leading-tight">
+            <span className="block text-glow">Innovate.</span>
+            <span className="block gradient-text">Transform.</span>
+            <span className="block text-primary">Elevate.</span>
+          </h1>
+          <motion.p
+            variants={textVariants}
+            className="text-xl md:text-2xl text-muted-foreground mb-8 max-w-2xl mx-auto"
           >
-            <h1 className="hero-title text-4xl md:text-5xl lg:text-6xl font-extrabold mb-6 leading-tight">
-              <span className="block text-glow">Innovate.</span>
-              <span className="block gradient-text">Transform.</span>
-              <span className="block text-primary">Elevate.</span>
-            </h1>
-            <motion.p
-              variants={textVariants}
-              className="text-xl md:text-2xl text-muted-foreground mb-8 max-w-2xl mx-auto lg:mx-0"
-            >
-              We build cutting-edge digital solutions that transform businesses and drive growth in the digital age.
-            </motion.p>
-            <motion.div
-              variants={textVariants}
-              className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start"
-            >
-              <motion.div
-                variants={buttonVariants}
-                whileHover="hover"
-                whileTap="tap"
-              >
-                <Button
-                  size="lg"
-                  className="bg-primary text-primary-foreground hover:bg-primary/90 font-medium text-lg w-full sm:w-auto"
-                  asChild
-                >
-                  <a href="#contact">Get Started</a>
-                </Button>
-              </motion.div>
-              <motion.div
-                variants={buttonVariants}
-                whileHover="hover"
-                whileTap="tap"
-              >
-                <Button
-                  size="lg"
-                  variant="outline"
-                  className="gradient-border text-foreground hover:text-primary font-medium text-lg w-full sm:w-auto"
-                  asChild
-                >
-                  <a href="#services" className="flex items-center">
-                    Our Services <ArrowRight className="ml-2 h-5 w-5" />
-                  </a>
-                </Button>
-              </motion.div>
-            </motion.div>
-          </motion.div>
-          
+            We build cutting-edge digital solutions that transform businesses
+            and drive growth in the digital age.
+          </motion.p>
           <motion.div
-            initial={{ opacity: 0, scale: 0.9, rotateY: -15 }}
-            animate={{ opacity: 1, scale: 1, rotateY: 0 }}
-            transition={{
-              duration: 0.8,
-              ease: [0.6, -0.05, 0.01, 0.99],
-            }}
-            className="hidden lg:block perspective-1000"
+            variants={textVariants}
+            className="flex flex-col sm:flex-row gap-4 justify-center"
           >
             <motion.div
-              animate={{
-                rotateY: [0, 5, 0],
-                rotateX: [0, 5, 0],
-              }}
-              transition={{
-                duration: 6,
-                ease: "linear",
-                repeat: Infinity,
-              }}
-              className="relative transform-3d"
+              variants={buttonVariants}
+              whileHover="hover"
+              whileTap="tap"
             >
-              <div className="absolute -inset-0.5 bg-linear-to-r from-primary/20 to-primary/10 rounded-2xl blur-xs"></div>
-              <div className="relative glass-card rounded-2xl p-8">
-                <img
-                  src="https://images.pexels.com/photos/3861969/pexels-photo-3861969.jpeg?auto=compress&cs=tinysrgb&w=1280"
-                  alt="Innovation"
-                  className="w-full h-auto rounded-lg shadow-lg"
-                />
-              </div>
+              <Button
+                size="lg"
+                className="bg-primary text-primary-foreground hover:bg-primary/90 font-medium text-lg w-full sm:w-auto"
+                asChild
+              >
+                <a href="#contact">Get Started</a>
+              </Button>
+            </motion.div>
+            <motion.div
+              variants={buttonVariants}
+              whileHover="hover"
+              whileTap="tap"
+            >
+              <Button
+                size="lg"
+                variant="outline"
+                className="gradient-border text-foreground hover:text-primary font-medium text-lg w-full sm:w-auto"
+                asChild
+              >
+                <a href="#services" className="flex items-center">
+                  Our Services <ArrowRight className="ml-2 h-5 w-5" />
+                </a>
+              </Button>
             </motion.div>
           </motion.div>
-        </div>
+        </motion.div>
       </div>
-      
+
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
@@ -188,7 +147,7 @@ export default function HeroSection() {
           transition={{
             duration: 2,
             ease: "easeInOut",
-            repeat: Infinity,
+            repeat: Number.POSITIVE_INFINITY,
           }}
         >
           <a
@@ -204,7 +163,7 @@ export default function HeroSection() {
                 transition={{
                   duration: 2,
                   ease: "easeInOut",
-                  repeat: Infinity,
+                  repeat: Number.POSITIVE_INFINITY,
                 }}
                 className="w-1.5 h-3 bg-primary rounded-full mt-2"
               />

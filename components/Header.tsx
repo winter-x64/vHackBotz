@@ -1,27 +1,39 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { cn } from "@/lib/utils";
 import Link from "next/link";
 import { ThemeToggle } from "@/app/theme-toggle";
-import { Button } from "@/components/ui/button";
-import { Menu, X, Zap } from "lucide-react";
-
-const navItems = [
-  { name: "Home", href: "#hero" },
-  { name: "About", href: "#about" },
-  { name: "Services", href: "#services" },
-  { name: "Works", href: "#works" },
-  { name: "Contact", href: "#contact" },
-];
+import { Zap } from "lucide-react";
+import { navItems } from "@/lib/constants";
 
 export default function Header() {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [activeSection, setActiveSection] = useState("Home");
+  const [timeOfLastClick, setTimeOfLastClick] = useState(0);
 
   useEffect(() => {
     const handleScroll = () => {
       setScrolled(window.scrollY > 10);
+
+      if (window.scrollY < 100) {
+        setActiveSection("Home");
+        return;
+      }
+
+      const sections = navItems.map((item) => item.href.substring(1));
+      for (const section of sections) {
+        const element = document.getElementById(section);
+        if (element) {
+          const rect = element.getBoundingClientRect();
+          if (rect.top <= 100 && rect.bottom >= 100) {
+            setActiveSection(
+              section.charAt(0).toUpperCase() + section.slice(1)
+            );
+            break;
+          }
+        }
+      }
     };
 
     const handleHashChange = (e: Event) => {
@@ -35,6 +47,8 @@ export default function Header() {
             behavior: "smooth",
           });
           setIsOpen(false);
+          setActiveSection(target.hash.substring(1));
+          setTimeOfLastClick(Date.now());
         }
       }
     };
@@ -52,80 +66,82 @@ export default function Header() {
     };
   }, []);
 
+  const NavLink = ({ item }: { item: (typeof navItems)[0] }) => {
+    const [isHovered, setIsHovered] = useState(false);
+    const isActive = isHovered || item.name === activeSection;
+
+    const linkClasses = isActive
+      ? "transition-all duration-200 relative text-orange-500"
+      : "opacity-70 transition-all duration-300 hover:opacity-100";
+
+    return (
+      <Link
+        href={item.href}
+        className={`relative ${linkClasses} flex items-center`}
+        onMouseEnter={() => setIsHovered(true)}
+        onMouseLeave={() => setIsHovered(false)}
+        onClick={() => {
+          setActiveSection(item.name);
+          setTimeOfLastClick(Date.now());
+        }}
+      >
+        <span className="relative px-1">
+          {item.name}
+          {isActive && (
+            <span className="absolute -bottom-1 left-0 w-full h-0.5 bg-orange-500 transition-all duration-300" />
+          )}
+        </span>
+      </Link>
+    );
+  };
+
   return (
-    <header
-      className={cn(
-        "fixed top-0 left-0 right-0 z-50 transition-all duration-300",
-        scrolled
-          ? "bg-white/80 dark:bg-black/80 backdrop-blur-md shadow-xs"
-          : "bg-transparent"
-      )}
-    >
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-16 md:h-20">
+    <header className="fixed z-50 transition-all duration-300 w-max mx-auto left-0 right-0 top-8">
+      <div className="hidden md:block bg-white/90 dark:bg-black/90 backdrop-blur-md shadow-lg px-8 py-3 rounded-full border border-white border-opacity-40">
+        <div className="flex items-center space-x-8 h-12">
           <div className="flex items-center">
-            <Link href="#hero" className="flex items-center space-x-2">
-              <Zap className="h-8 w-8 text-orange-500" />
-              <span className="font-bold text-xl">vHackBotz</span>
+            <Link href="/" className="flex items-center space-x-2">
+              <Zap className="h-7 w-7 text-orange-500" />
+              <span className="font-bold text-lg">vHackBotz</span>
             </Link>
           </div>
 
-          <nav className="hidden md:flex items-center space-x-6">
+          <nav className="flex items-center space-x-8">
             {navItems.map((item) => (
-              <Link
-                key={item.name}
-                href={item.href}
-                className="text-sm font-medium hover:text-orange-500 transition-colors"
-              >
-                {item.name}
-              </Link>
+              <NavLink key={item.name} item={item} />
             ))}
             <ThemeToggle />
-            <Button className="bg-linear-to-r from-orange-500 to-orange-400 hover:from-orange-600 hover:to-orange-500">
-              Get Started
-            </Button>
           </nav>
-
-          <div className="flex md:hidden items-center space-x-2">
-            <ThemeToggle />
-            <Button
-              variant="ghost"
-              size="icon"
-              onClick={() => setIsOpen(!isOpen)}
-              aria-label="Toggle menu"
-            >
-              {isOpen ? (
-                <X className="h-6 w-6" />
-              ) : (
-                <Menu className="h-6 w-6" />
-              )}
-            </Button>
-          </div>
         </div>
       </div>
 
-      {/* Mobile menu */}
-      {isOpen && (
-        <div className="md:hidden bg-background border-t border-border">
-          <div className="container mx-auto px-4 py-4">
-            <nav className="flex flex-col space-y-4">
-              {navItems.map((item) => (
-                <Link
-                  key={item.name}
-                  href={item.href}
-                  className="text-sm font-medium py-2 hover:text-orange-500 transition-colors"
-                  onClick={() => setIsOpen(false)}
-                >
-                  {item.name}
-                </Link>
-              ))}
-              <Button className="bg-linear-to-r from-orange-500 to-orange-400 hover:from-orange-600 hover:to-orange-500 w-full">
-                Get Started
-              </Button>
-            </nav>
-          </div>
+      <div className="md:hidden bg-white/90 dark:bg-black/90 backdrop-blur-md shadow-lg px-6 py-3 rounded-full border border-white border-opacity-40">
+        <div className="flex items-center justify-between space-x-4">
+          <Link href="#hero" className="flex items-center space-x-2">
+            <Zap className="h-6 w-6 text-orange-500" />
+          </Link>
+
+          <nav className="flex items-center space-x-4">
+            {navItems.slice(1).map((item) => (
+              <Link
+                key={item.name}
+                href={item.href}
+                className={`flex items-center ${
+                  activeSection === item.name
+                    ? "text-orange-500"
+                    : "text-gray-600 dark:text-gray-300"
+                }`}
+                onClick={() => {
+                  setActiveSection(item.name);
+                }}
+              >
+                <item.icon className="h-5 w-5" />
+              </Link>
+            ))}
+            <ThemeToggle />
+          </nav>
         </div>
-      )}
+      </div>
     </header>
   );
 }

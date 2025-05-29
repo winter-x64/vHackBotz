@@ -4,14 +4,14 @@ import { motion, useScroll, useTransform } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
-import { Mail, MessageSquare, Phone } from "lucide-react";
 import { useRef, useEffect } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { contactInfo } from "@/lib/constants";
 
 gsap.registerPlugin(ScrollTrigger);
 
-export default function ContactSection() {
+export default function Contact() {
   const containerRef = useRef(null);
   const { scrollYProgress } = useScroll({
     target: containerRef,
@@ -39,7 +39,11 @@ export default function ContactSection() {
   }, []);
 
   return (
-    <section id="contact" ref={containerRef} className="py-20 bg-background relative overflow-hidden">
+    <section
+      id="contact"
+      ref={containerRef}
+      className="py-20 bg-background relative overflow-hidden"
+    >
       <div className="absolute inset-0 bg-linear-to-b from-background via-background to-muted opacity-80" />
 
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative">
@@ -54,48 +58,32 @@ export default function ContactSection() {
             Get in <span className="gradient-text">Touch</span>
           </h2>
           <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
-            Have a project in mind? Let's discuss how we can help bring your ideas
-            to life.
+            Have a project in mind? Let's discuss how we can help bring your
+            ideas to life.
           </p>
         </motion.div>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-          <motion.div
-            style={{ y }}
-            className="contact-info"
-          >
+          <motion.div style={{ y }} className="contact-info">
             <div className="glass-card rounded-2xl p-8">
-              <h3 className="text-2xl font-semibold mb-6 text-glow">Contact Information</h3>
+              <h3 className="text-2xl font-semibold mb-6 text-glow">
+                Contact Information
+              </h3>
               <div className="space-y-6">
-                <div className="contact-info-item flex items-start space-x-4">
-                  <div className="bg-primary/10 p-3 rounded-lg">
-                    <Phone className="h-6 w-6 text-primary" />
+                {contactInfo.map((item, index) => (
+                  <div
+                    key={index}
+                    className="contact-info-item flex items-start space-x-4"
+                  >
+                    <div className="bg-primary/10 p-3 rounded-lg">
+                      {item.icon}
+                    </div>
+                    <div>
+                      <h4 className="font-medium mb-1">{item.title}</h4>
+                      <p className="text-muted-foreground">{item.value}</p>
+                    </div>
                   </div>
-                  <div>
-                    <h4 className="font-medium mb-1">Phone</h4>
-                    <p className="text-muted-foreground">+1 (555) 123-4567</p>
-                  </div>
-                </div>
-                <div className="contact-info-item flex items-start space-x-4">
-                  <div className="bg-primary/10 p-3 rounded-lg">
-                    <Mail className="h-6 w-6 text-primary" />
-                  </div>
-                  <div>
-                    <h4 className="font-medium mb-1">Email</h4>
-                    <p className="text-muted-foreground">info@vhackbotz.com</p>
-                  </div>
-                </div>
-                <div className="contact-info-item flex items-start space-x-4">
-                  <div className="bg-primary/10 p-3 rounded-lg">
-                    <MessageSquare className="h-6 w-6 text-primary" />
-                  </div>
-                  <div>
-                    <h4 className="font-medium mb-1">Live Chat</h4>
-                    <p className="text-muted-foreground">
-                      Available Monday to Friday, 9am - 5pm EST
-                    </p>
-                  </div>
-                </div>
+                ))}
               </div>
             </div>
           </motion.div>
