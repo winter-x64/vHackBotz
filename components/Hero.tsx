@@ -85,9 +85,9 @@ export default function HeroSection() {
           className="text-center max-w-3xl mx-auto"
         >
           <h1 className="hero-title text-4xl md:text-5xl lg:text-6xl font-extrabold mb-6 leading-tight">
-            <span className="block text-glow">Innovate.</span>
-            <span className="block gradient-text">Transform.</span>
-            <span className="block text-primary">Elevate.</span>
+            <span className="block text-glow">Hack.</span>
+            <span className="block gradient-text">Build.</span>
+            <span className="block text-primary">Dominate.</span>
           </h1>
           <motion.p
             variants={textVariants}
