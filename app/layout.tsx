@@ -2,6 +2,7 @@ import "./globals.css";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import { ThemeProvider } from "@/app/theme-provider";
+import Background from "@/components/ui/background";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -24,10 +25,15 @@ export default function RootLayout({
       <body className={inter.className}>
         <ThemeProvider
           attribute="class"
-          defaultTheme="system"
+          defaultTheme="dark"
           enableSystem
           disableTransitionOnChange
         >
+          <Background
+            scale="scale-100"
+            opacity="opacity-30"
+            position="fixed"
+          />
           <main className="flex-1">{children}</main>
         </ThemeProvider>
       </body>

@@ -2,7 +2,6 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
-import { ThemeToggle } from "@/app/theme-toggle";
 import { Zap } from "lucide-react";
 import { navItems } from "@/lib/constants";
 
@@ -10,12 +9,10 @@ export default function Header() {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [activeSection, setActiveSection] = useState("Home");
-  const [timeOfLastClick, setTimeOfLastClick] = useState(0);
 
   useEffect(() => {
     const handleScroll = () => {
       setScrolled(window.scrollY > 10);
-
       if (window.scrollY < 100) {
         setActiveSection("Home");
         return;
@@ -36,34 +33,8 @@ export default function Header() {
       }
     };
 
-    const handleHashChange = (e: Event) => {
-      const target = e.target as HTMLAnchorElement;
-      if (target && target.hash) {
-        e.preventDefault();
-        const element = document.querySelector(target.hash);
-        if (element) {
-          window.scrollTo({
-            top: element.getBoundingClientRect().top + window.scrollY - 80,
-            behavior: "smooth",
-          });
-          setIsOpen(false);
-          setActiveSection(target.hash.substring(1));
-          setTimeOfLastClick(Date.now());
-        }
-      }
-    };
-
     window.addEventListener("scroll", handleScroll);
-    document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
-      anchor.addEventListener("click", handleHashChange);
-    });
-
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-      document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
-        anchor.removeEventListener("click", handleHashChange);
-      });
-    };
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   const NavLink = ({ item }: { item: (typeof navItems)[0] }) => {
@@ -74,15 +45,31 @@ export default function Header() {
       ? "transition-all duration-200 relative text-orange-500"
       : "opacity-70 transition-all duration-300 hover:opacity-100";
 
+    const smoothScroll = (element: HTMLElement) => {
+      const yOffset = -90;
+      const targetPosition =
+        element.getBoundingClientRect().top + window.scrollY + yOffset;
+
+      window.scrollTo({
+        top: targetPosition,
+        behavior: "smooth",
+      });
+    };
+
     return (
       <Link
         href={item.href}
         className={`relative ${linkClasses} flex items-center`}
         onMouseEnter={() => setIsHovered(true)}
         onMouseLeave={() => setIsHovered(false)}
-        onClick={() => {
+        onClick={(e) => {
+          e.preventDefault();
           setActiveSection(item.name);
-          setTimeOfLastClick(Date.now());
+          setIsOpen(false);
+          const element = document.getElementById(item.href.substring(1));
+          if (element) {
+            smoothScroll(element);
+          }
         }}
       >
         <span className="relative px-1">
@@ -110,7 +97,6 @@ export default function Header() {
             {navItems.map((item) => (
               <NavLink key={item.name} item={item} />
             ))}
-            <ThemeToggle />
           </nav>
         </div>
       </div>
@@ -138,7 +124,6 @@ export default function Header() {
                 <item.icon className="h-5 w-5" />
               </Link>
             ))}
-            <ThemeToggle />
           </nav>
         </div>
       </div>

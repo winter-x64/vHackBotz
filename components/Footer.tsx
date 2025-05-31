@@ -17,9 +17,9 @@ export default function Footer() {
           <div className="flex justify-end space-x-4">
             {socialLinks.map((link, index) => (
               <Link
-                key={index}
+                key={link.label}
                 href={link.href}
-                className="text-gray-500 hover:text-orange-500 transition-colors"
+                className="text-white-500 hover:text-orange-500 transition-colors"
                 aria-label={link.label}
               >
                 {link.icon}

@@ -8,10 +8,8 @@ export default function Works() {
   return (
     <section
       id="works"
-      className="py-20 bg-background relative overflow-hidden"
+      className="py-20 relative overflow-hidden"
     >
-      <div className="absolute inset-0 bg-gradient-to-b from-background via-background to-muted opacity-80" />
-
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative">
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-bold mb-4">

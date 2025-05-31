@@ -1,6 +1,7 @@
 "use client";
 
 import { motion, useScroll, useTransform } from "framer-motion";
+import { Button } from "@/components/ui/button";
 import { useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -8,7 +9,7 @@ import { services, statsData } from "@/lib/constants";
 
 gsap.registerPlugin(ScrollTrigger);
 
-export default function Services() {
+export default function ServicesSection() {
   const containerRef = useRef(null);
   const { scrollYProgress } = useScroll({
     target: containerRef,
@@ -21,10 +22,8 @@ export default function Services() {
     <section
       id="services"
       ref={containerRef}
-      className="py-20 bg-background relative overflow-hidden"
+      className="py-20 relative overflow-hidden"
     >
-      <div className="absolute inset-0 bg-linear-to-b from-background via-background to-muted opacity-80" />
-
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -44,7 +43,7 @@ export default function Services() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {services.map((service, index) => (
             <motion.div
-              key={index}
+              key={service.title}
               initial={{ opacity: 0, y: 50 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -82,7 +81,7 @@ export default function Services() {
                   </motion.li>
                 ))}
               </ul>
-            </motion.div>
+              </motion.div>
           ))}
         </div>
 
@@ -93,7 +92,7 @@ export default function Services() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {statsData.map((stat, index) => (
               <motion.div
-                key={index}
+                key={stat.label}
                 initial={{ opacity: 0, scale: 0.5 }}
                 whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true }}

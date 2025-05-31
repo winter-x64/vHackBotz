@@ -1,9 +1,11 @@
 import { Suspense, lazy } from "react";
 import { VelocityScroll } from "@/components/ui/scroll-based-velocity";
+import { ScrollProgress } from "@/components/ui/scroll-progress";
 
 const Header = lazy(() => import("@/components/Header"));
 const Hero = lazy(() => import("@/components/Hero"));
 const About = lazy(() => import("@/components/About"));
+const WhyUs = lazy(() => import("@/components/WhyUs"));
 const Services = lazy(() => import("@/components/Services"));
 const Works = lazy(() => import("@/components/Works"));
 const Contact = lazy(() => import("@/components/Contact"));
@@ -18,14 +20,16 @@ export default function HomePage() {
     <>
       <Suspense fallback={<Skeleton />}>
         <main className="min-h-screen relative z-10">
+          <ScrollProgress className="h-2 bg-orange-500" />
           <Header />
           <Hero />
-          <section className="w-full bg-black text-white font-medium">
+          <section className="w-full bg-black text-orange-400 font-normal">
             <VelocityScroll numRows={1} defaultVelocity={2}>
-              HACK ★ BUILD ★ DOMINATE ★
+              HACK • BUILD • DOMINATE •
             </VelocityScroll>
           </section>
           <About />
+          <WhyUs />
           <Services />
           <Works />
           <Contact />

@@ -1,165 +1,51 @@
 "use client";
-
-import { motion, useScroll, useTransform } from "framer-motion";
+import { PhoneCall, Mail } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Textarea } from "@/components/ui/textarea";
-import { useRef, useEffect } from "react";
-import gsap from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { Badge } from "@/components/ui/badge";
 import { contactInfo } from "@/lib/constants";
 
-gsap.registerPlugin(ScrollTrigger);
-
 export default function Contact() {
-  const containerRef = useRef(null);
-  const { scrollYProgress } = useScroll({
-    target: containerRef,
-    offset: ["start end", "end start"],
-  });
-
-  const y = useTransform(scrollYProgress, [0, 1], [100, -100]);
-
-  useEffect(() => {
-    const ctx = gsap.context(() => {
-      gsap.from(".contact-info-item", {
-        x: -50,
-        opacity: 0,
-        duration: 0.8,
-        stagger: 0.2,
-        ease: "power3.out",
-        scrollTrigger: {
-          trigger: ".contact-info",
-          start: "top 80%",
-        },
-      });
-    }, containerRef);
-
-    return () => ctx.revert();
-  }, []);
+  const calendarInfo = contactInfo.find(
+    (info) => info.title === "Schedule a Meeting"
+  );
+  const emailInfo = contactInfo.find((info) => info.title === "Email");
 
   return (
-    <section
-      id="contact"
-      ref={containerRef}
-      className="py-20 bg-background relative overflow-hidden"
-    >
-      <div className="absolute inset-0 bg-linear-to-b from-background via-background to-muted opacity-80" />
-
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5 }}
-          className="text-center mb-16"
-        >
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">
-            Get in <span className="gradient-text">Touch</span>
-          </h2>
-          <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
-            Have a project in mind? Let's discuss how we can help bring your
-            ideas to life.
-          </p>
-        </motion.div>
-
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-          <motion.div style={{ y }} className="contact-info">
-            <div className="glass-card rounded-2xl p-8">
-              <h3 className="text-2xl font-semibold mb-6 text-glow">
-                Contact Information
-              </h3>
-              <div className="space-y-6">
-                {contactInfo.map((item, index) => (
-                  <div
-                    key={index}
-                    className="contact-info-item flex items-start space-x-4"
-                  >
-                    <div className="bg-primary/10 p-3 rounded-lg">
-                      {item.icon}
-                    </div>
-                    <div>
-                      <h4 className="font-medium mb-1">{item.title}</h4>
-                      <p className="text-muted-foreground">{item.value}</p>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </motion.div>
-
-          <motion.div
-            initial={{ opacity: 0, x: 20 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5 }}
-          >
-            <form className="glass-card rounded-2xl p-8">
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-6">
-                <div>
-                  <label
-                    htmlFor="name"
-                    className="block text-sm font-medium mb-2"
-                  >
-                    Name
-                  </label>
-                  <Input
-                    id="name"
-                    placeholder="John Doe"
-                    className="bg-primary/5 border-primary/20 focus:border-primary"
-                  />
-                </div>
-                <div>
-                  <label
-                    htmlFor="email"
-                    className="block text-sm font-medium mb-2"
-                  >
-                    Email
-                  </label>
-                  <Input
-                    id="email"
-                    type="email"
-                    placeholder="john@example.com"
-                    className="bg-primary/5 border-primary/20 focus:border-primary"
-                  />
-                </div>
-              </div>
-              <div className="mb-6">
-                <label
-                  htmlFor="subject"
-                  className="block text-sm font-medium mb-2"
-                >
-                  Subject
-                </label>
-                <Input
-                  id="subject"
-                  placeholder="Project Inquiry"
-                  className="bg-primary/5 border-primary/20 focus:border-primary"
-                />
-              </div>
-              <div className="mb-6">
-                <label
-                  htmlFor="message"
-                  className="block text-sm font-medium mb-2"
-                >
-                  Message
-                </label>
-                <Textarea
-                  id="message"
-                  placeholder="Tell us about your project..."
-                  className="bg-primary/5 border-primary/20 focus:border-primary min-h-[150px]"
-                />
-              </div>
-              <Button
-                type="submit"
-                className="w-full bg-primary text-primary-foreground hover:bg-primary/90"
+    <div id="contact" className="w-full py-20 lg:py-40">
+      <div className="container mx-auto">
+        <div className="flex flex-col text-center rounded-md p-4 lg:p-14 gap-8 items-center">
+          <div>
+            <Badge>Get in Touch</Badge>
+          </div>
+          <div className="flex flex-col gap-2">
+            <h3 className="text-3xl md:text-5xl tracking-tighter max-w-xl font-regular">
+              Try our platform today!
+            </h3>
+            <p className="text-lg leading-relaxed tracking-tight text-muted-foreground max-w-xl">
+              Managing a small business today is already tough. Avoid further
+              complications by ditching outdated, tedious trade methods. Our
+              goal is to streamline SMB trade, making it easier and faster than
+              ever.
+            </p>
+          </div>
+          <div className="flex flex-row gap-4">
+            <Button className="gap-4" variant="outline" asChild>
+              <a
+                href={calendarInfo?.href}
+                target="_blank"
+                rel="noopener noreferrer"
               >
-                Send Message
-              </Button>
-            </form>
-          </motion.div>
+                Jump on a call <PhoneCall className="w-4 h-4" />
+              </a>
+            </Button>
+            <Button className="gap-4" asChild>
+              <a href={emailInfo?.href}>
+                Email us <Mail className="w-4 h-4" />
+              </a>
+            </Button>
+          </div>
         </div>
       </div>
-    </section>
+    </div>
   );
 }

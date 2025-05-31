@@ -4,9 +4,7 @@ import {
   Palette,
   Lightbulb,
   Rocket,
-  Phone,
   Mail,
-  MessageSquare,
   Home,
   Info,
   Settings,
@@ -24,6 +22,35 @@ export const navItems = [
   { name: "Works", href: "#works", icon: Briefcase },
   { name: "Contact", href: "#contact", icon: Mail },
 ];
+
+export const aboutUs = {
+  title: "Pioneering Tech Solutions",
+  subtitle: "Transforming Ideas into Reality",
+  description:
+    "vHackBotz is a cutting-edge technology company specializing in innovative solutions across web development, hardware integration, and creative design. Founded in 2018, we've been delivering exceptional digital experiences that help businesses thrive in the digital age.",
+};
+
+export const whyUs = [
+  {
+    icon: <Lightbulb className="h-8 w-8 text-primary" />,
+    title: "Innovation First",
+    description:
+      "We stay ahead of technological trends to deliver forward-thinking solutions.",
+  },
+  {
+    icon: <Code2 className="h-8 w-8 text-primary" />,
+    title: "Technical Excellence",
+    description:
+      "Our team of experts ensures the highest quality in every project we deliver.",
+  },
+  {
+    icon: <Rocket className="h-8 w-8 text-primary" />,
+    title: "Rapid Delivery",
+    description:
+      "We believe in agile development to bring your ideas to market faster.",
+  },
+];
+
 
 export const services = [
   {
@@ -128,42 +155,16 @@ export const projects = [
   },
 ];
 
-export const aboutFeatures = [
-  {
-    icon: <Lightbulb className="h-8 w-8 text-primary" />,
-    title: "Innovation First",
-    description:
-      "We stay ahead of technological trends to deliver forward-thinking solutions.",
-  },
-  {
-    icon: <Code2 className="h-8 w-8 text-primary" />,
-    title: "Technical Excellence",
-    description:
-      "Our team of experts ensures the highest quality in every project we deliver.",
-  },
-  {
-    icon: <Rocket className="h-8 w-8 text-primary" />,
-    title: "Rapid Delivery",
-    description:
-      "We believe in agile development to bring your ideas to market faster.",
-  },
-];
-
 export const contactInfo = [
   {
-    icon: <Phone className="h-6 w-6 text-primary" />,
-    title: "Phone",
-    value: "+1 (555) 123-4567",
-  },
-  {
-    icon: <Mail className="h-6 w-6 text-primary" />,
     title: "Email",
     value: "info@vhackbotz.com",
+    href: "mailto:info@vhackbotz.com",
   },
   {
-    icon: <MessageSquare className="h-6 w-6 text-primary" />,
-    title: "Live Chat",
-    value: "Available Monday to Friday, 9am - 5pm EST",
+    title: "Schedule a Meeting",
+    value: "Book a time on our calendar",
+    href: "https://cal.com/vhackbotz/meeting",
   },
 ];
 
