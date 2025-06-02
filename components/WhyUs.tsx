@@ -3,7 +3,7 @@
 import { motion } from "framer-motion";
 import { useRef } from "react";
 import { whyUs } from "@/lib/constants";
-
+import { FeatureCard } from "@/components/ui/feature-cards";
 
 export default function WhyUs() {
   const containerRef = useRef(null);
@@ -39,16 +39,15 @@ export default function WhyUs() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: index * 0.2 }}
-              whileHover={{ scale: 1.02 }}
-              className="glass-card rounded-2xl p-8 hover-glow"
             >
-              <div className="bg-primary/10 p-3 rounded-lg w-fit mb-4">
-                {item.icon}
-              </div>
-              <h3 className="text-xl font-semibold mb-2 text-glow">
-                {item.title}
-              </h3>
-              <p className="text-muted-foreground">{item.description}</p>
+              <FeatureCard
+                feature={{
+                  title: item.title,
+                  description: item.description,
+                  icon: () => item.icon,
+                }}
+                className="h-full"
+              />
             </motion.div>
           ))}
         </div>

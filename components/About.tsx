@@ -49,7 +49,7 @@ export default function About() {
           transition={{ duration: 0.5 }}
           className="text-center mb-12"
         >
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">
+          <h2 className="text-3xl md:text-4xl font-bold mb-4 text-white">
             {aboutUs.title}
           </h2>
           <p className="text-muted-foreground text-lg max-w-2xl mx-auto">

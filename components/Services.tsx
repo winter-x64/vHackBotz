@@ -1,7 +1,6 @@
 "use client";
 
 import { motion, useScroll, useTransform } from "framer-motion";
-import { Button } from "@/components/ui/button";
 import { useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -9,7 +8,7 @@ import { services, statsData } from "@/lib/constants";
 
 gsap.registerPlugin(ScrollTrigger);
 
-export default function ServicesSection() {
+export default function Services() {
   const containerRef = useRef(null);
   const { scrollYProgress } = useScroll({
     target: containerRef,
@@ -49,7 +48,7 @@ export default function ServicesSection() {
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: index * 0.2 }}
               whileHover={{ scale: 1.02 }}
-              className="glass-card rounded-2xl p-8 hover-glow"
+              className="glass-card rounded-2xl p-8 hover-glow bg-black/50"
             >
               <motion.div
                 initial={{ scale: 0 }}
@@ -81,13 +80,13 @@ export default function ServicesSection() {
                   </motion.li>
                 ))}
               </ul>
-              </motion.div>
+            </motion.div>
           ))}
         </div>
 
         <motion.div
           style={{ y }}
-          className="mt-16 glass-card rounded-2xl p-8 text-center"
+          className="mt-16 glass-card rounded-2xl p-8 text-center bg-black/50"
         >
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {statsData.map((stat, index) => (

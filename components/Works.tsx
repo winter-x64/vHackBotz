@@ -6,13 +6,10 @@ import { projects } from "@/lib/constants";
 
 export default function Works() {
   return (
-    <section
-      id="works"
-      className="py-20 relative overflow-hidden"
-    >
+    <section id="works" className="py-20 relative overflow-hidden">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative">
         <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">
+          <h2 className="text-3xl md:text-4xl font-bold mb-4 text-white">
             Our <span className="gradient-text">Projects</span>
           </h2>
           <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
@@ -25,7 +22,7 @@ export default function Works() {
           {projects.map((project) => (
             <article
               key={project.title}
-              className="group/article relative w-full rounded-xl overflow-hidden md:group-hover:[&:not(:hover)]:w-[25%] md:group-focus-within:[&:not(:focus-within):not(:hover)]:w-[25%] transition-all duration-300 ease-[cubic-bezier(.5,.85,.25,1.15)] before:absolute before:inset-x-0 before:bottom-0 before:h-full before:bg-gradient-to-t before:from-black/70 before:to-black/30 before:transition-opacity md:before:opacity-0 md:hover:before:opacity-100 focus-within:before:opacity-100 after:opacity-0 md:group-hover:[&:not(:hover)]:after:opacity-100 md:group-focus-within:[&:not(:focus-within):not(:hover)]:after:opacity-100 after:absolute after:inset-0 after:bg-white/30 after:backdrop-blur after:rounded-lg after:transition-all focus-within:ring focus-within:ring-indigo-300"
+              className="group/article relative w-full rounded-xl overflow-hidden md:group-hover:[&:not(:hover)]:w-[25%] md:group-focus-within:[&:not(:focus-within):not(:hover)]:w-[25%] transition-all duration-300 ease-[cubic-bezier(.5,.85,.25,1.15)] before:absolute before:inset-x-0 before:bottom-0 before:h-full before:bg-gradient-to-t before:from-black/70 before:to-black/30 before:transition-opacity md:before:opacity-0 md:hover:before:opacity-100 focus-within:before:opacity-100 after:opacity-0 md:group-hover:[&:not(:hover)]:after:opacity-100 md:group-focus-within:[&:not(:focus-within):not(:hover)]:after:opacity-100 after:absolute after:inset-0 after:bg-black/70 after:backdrop-blur after:rounded-lg after:transition-all focus-within:ring focus-within:ring-indigo-300"
             >
               <div className="hidden md:block absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-black/60 md:opacity-70 md:group-hover:opacity-0 transition-opacity duration-300 z-10" />
 

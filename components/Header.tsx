@@ -84,7 +84,7 @@ export default function Header() {
 
   return (
     <header className="fixed z-50 transition-all duration-300 w-max mx-auto left-0 right-0 top-8">
-      <div className="hidden md:block bg-white/90 dark:bg-black/90 backdrop-blur-md shadow-lg px-8 py-3 rounded-full border border-white border-opacity-40">
+      <div className="hidden md:block bg-black/90 backdrop-blur-md shadow-lg px-8 py-3 rounded-full border border-white border-opacity-40">
         <div className="flex items-center space-x-8 h-12">
           <div className="flex items-center">
             <Link href="/" className="flex items-center space-x-2">
@@ -101,7 +101,7 @@ export default function Header() {
         </div>
       </div>
 
-      <div className="md:hidden bg-white/90 dark:bg-black/90 backdrop-blur-md shadow-lg px-6 py-3 rounded-full border border-white border-opacity-40">
+      <div className="md:hidden bg-black/90 backdrop-blur-md shadow-lg px-6 py-3 rounded-full border border-white border-opacity-40">
         <div className="flex items-center justify-between space-x-4">
           <Link href="#hero" className="flex items-center space-x-2">
             <Zap className="h-6 w-6 text-orange-500" />
@@ -115,7 +115,7 @@ export default function Header() {
                 className={`flex items-center ${
                   activeSection === item.name
                     ? "text-orange-500"
-                    : "text-gray-600 dark:text-gray-300"
+                    : "text-gray-300"
                 }`}
                 onClick={() => {
                   setActiveSection(item.name);

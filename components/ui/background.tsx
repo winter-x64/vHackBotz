@@ -8,7 +8,6 @@ interface BackgroundProps {
   opacity: string;
   position?: string;
   overflow?: string;
-  theme?: "light" | "dark";
 }
 
 const Background: React.FC<BackgroundProps> = ({
@@ -16,7 +15,6 @@ const Background: React.FC<BackgroundProps> = ({
   opacity,
   position,
   overflow,
-  theme = "dark",
 }) => {
   const [mouseXpercentage, setMouseXPercentage] = useState<number>(0);
   const [mouseYpercentage, setMouseYPercentage] = useState<number>(0);
@@ -42,9 +40,7 @@ const Background: React.FC<BackgroundProps> = ({
   }, []);
 
   const backgroundStyle: React.CSSProperties = {
-    background: `radial-gradient(at ${mouseXpercentage}% ${mouseYpercentage}%, #ff6a3d, ${
-      theme === "light" ? "#010714" : "#010714"
-    })`,
+    background: `radial-gradient(at ${mouseXpercentage}% ${mouseYpercentage}%, #ff6a3d, #000000)`,
   };
 
   return (
