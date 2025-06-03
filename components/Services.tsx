@@ -1,110 +1,76 @@
-"use client";
-
-import { motion, useScroll, useTransform } from "framer-motion";
-import { useRef } from "react";
-import gsap from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { services, statsData } from "@/lib/constants";
-
-gsap.registerPlugin(ScrollTrigger);
+import React from "react";
+import { Card } from "@/components/ui/card";
+import { services } from "@/lib/constants";
 
 export default function Services() {
-  const containerRef = useRef(null);
-  const { scrollYProgress } = useScroll({
-    target: containerRef,
-    offset: ["start end", "end start"],
-  });
-
-  const y = useTransform(scrollYProgress, [0, 1], [100, -100]);
-
   return (
-    <section
-      id="services"
-      ref={containerRef}
-      className="py-20 relative overflow-hidden"
-    >
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5 }}
-          className="text-center mb-16"
-        >
-          <h2 className="text-4xl md:text-5xl font-bold mb-4 gradient-text">
-            Our Expertise
-          </h2>
-          <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
-            Delivering innovative solutions across web, hardware, and design.
-          </p>
-        </motion.div>
-
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          {services.map((service, index) => (
-            <motion.div
-              key={service.title}
-              initial={{ opacity: 0, y: 50 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: index * 0.2 }}
-              whileHover={{ scale: 1.02 }}
-              className="glass-card rounded-2xl p-8 hover-glow bg-black/50"
-            >
-              <motion.div
-                initial={{ scale: 0 }}
-                animate={{ scale: 1 }}
-                transition={{ delay: 0.2 + index * 0.1, type: "spring" }}
-                className="bg-primary/10 p-4 rounded-xl w-fit mb-6"
-              >
+    <section id="services" className="w-full py-16 md:py-24 container mx-auto px-4">
+      <h2 className="text-4xl md:text-5xl lg:text-6xl font-inter font-semibold text-white text-center mb-12 md:mb-16">
+        Services
+      </h2>
+      <div className="lg:hidden space-y-6">
+        {services.map((service) => (
+          <Card
+            key={service.title}
+            className="bg-black/40 rounded-[30px] border-2 border-[#ff6a3d] p-5 transition-transform hover:scale-[1.02]"
+          >
+            <div className="flex flex-col sm:flex-row items-center gap-4">
+              <div className="bg-black/60 w-10 h-10 aspect-square rounded-[12px] flex items-center justify-center text-xl border-2 border-[#ff6a3d] text-[#ff6a3d]">
                 {service.icon}
-              </motion.div>
-              <h3 className="text-2xl font-semibold mb-4 text-glow">
-                {service.title}
-              </h3>
-              <p className="text-muted-foreground mb-6">
-                {service.description}
-              </p>
-              <ul className="space-y-3 mb-6">
-                {service.features.map((feature, featureIndex) => (
-                  <motion.li
-                    key={featureIndex}
-                    initial={{ opacity: 0, x: -20 }}
-                    whileInView={{ opacity: 1, x: 0 }}
-                    transition={{ delay: 0.3 + featureIndex * 0.1 }}
-                    className="flex items-center"
-                  >
-                    <div className="h-1.5 w-1.5 rounded-full bg-primary mr-3" />
-                    <span className="text-sm text-muted-foreground">
-                      {feature}
-                    </span>
-                  </motion.li>
-                ))}
-              </ul>
-            </motion.div>
-          ))}
+              </div>
+              <div className="text-center sm:text-left flex-1">
+                <h3 className="text-xl font-semibold text-white mb-2">
+                  {service.title}
+                </h3>
+                <p className="text-gray-300 text-sm">{service.description}</p>
+              </div>
+            </div>
+          </Card>
+        ))}
+      </div>
+
+      <div className="hidden lg:block">
+        <div className="grid grid-cols-8 gap-6 mb-6">
+          <Card className="col-span-1 aspect-square bg-black/40 rounded-[25px] border-2 border-[#ff6a3d] p-3 flex items-center justify-center">
+            <div className="bg-black/60 w-16 h-16 rounded-[12px] border-2 border-[#ff6a3d] flex items-center justify-center text-2xl text-[#fbf6f5]">
+              {services[0].icon}
+            </div>
+          </Card>
+          <Card className="col-span-7 bg-black/40 rounded-[30px] border-2 border-[#ff6a3d] p-6">
+            <h3 className="text-2xl font-semibold text-white mb-3">
+              {services[0].title}
+            </h3>
+            <p className="text-gray-300">{services[0].description}</p>
+          </Card>
         </div>
 
-        <motion.div
-          style={{ y }}
-          className="mt-16 glass-card rounded-2xl p-8 text-center bg-black/50"
-        >
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {statsData.map((stat, index) => (
-              <motion.div
-                key={stat.label}
-                initial={{ opacity: 0, scale: 0.5 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: index * 0.2 }}
-              >
-                <div className="text-4xl font-bold mb-2 gradient-text">
-                  {stat.number}
-                </div>
-                <div className="text-muted-foreground">{stat.label}</div>
-              </motion.div>
-            ))}
-          </div>
-        </motion.div>
+        <div className="grid grid-cols-8 gap-6 mb-6">
+          <Card className="col-span-7 bg-black/40 rounded-[30px] border-2 border-[#ff6a3d] p-6">
+            <h3 className="text-2xl font-semibold text-white mb-3">
+              {services[1].title}
+            </h3>
+            <p className="text-gray-300">{services[1].description}</p>
+          </Card>
+          <Card className="col-span-1 aspect-square bg-black/40 rounded-[25px] border-2 border-[#ff6a3d] p-3 flex items-center justify-center">
+            <div className="bg-black/60 w-16 h-16 rounded-[12px] border-2 border-[#ff6a3d] flex items-center justify-center text-2xl text-[#f1edeb]">
+              {services[1].icon}
+            </div>
+          </Card>
+        </div>
+
+        <div className="grid grid-cols-8 gap-6">
+          <Card className="col-span-1 aspect-square bg-black/40 rounded-[25px] border-2 border-[#ff6a3d] p-3 flex items-center justify-center">
+            <div className="bg-black/60 w-16 h-16 rounded-[12px] border-2 border-[#ff6a3d] flex items-center justify-center text-2xl text-[#f0e9e7]">
+              {services[2].icon}
+            </div>
+          </Card>
+          <Card className="col-span-7 bg-black/40 rounded-[30px] border-2 border-[#ff6a3d] p-6">
+            <h3 className="text-2xl font-semibold text-white mb-3">
+              {services[2].title}
+            </h3>
+            <p className="text-gray-300">{services[2].description}</p>
+          </Card>
+        </div>
       </div>
     </section>
   );

@@ -57,34 +57,16 @@ export const services = [
     icon: <Code2 className="h-10 w-10" />,
     title: "Web Development",
     description: "Full-stack web solutions with cutting-edge technologies.",
-    features: [
-      "Next.js & React Applications",
-      "Custom Web Platforms",
-      "E-commerce Solutions",
-      "Progressive Web Apps",
-    ],
   },
   {
     icon: <Cpu className="h-10 w-10" />,
     title: "Hardware Solutions",
     description: "Custom hardware development and IoT solutions.",
-    features: [
-      "IoT Device Development",
-      "Embedded Systems",
-      "Hardware Prototyping",
-      "Circuit Design",
-    ],
   },
   {
     icon: <Palette className="h-10 w-10" />,
     title: "Design Services",
     description: "Creative design solutions for digital products.",
-    features: [
-      "UI/UX Design",
-      "Brand Identity",
-      "Motion Graphics",
-      "3D Visualization",
-    ],
   },
 ];
 

@@ -1,55 +1,39 @@
 "use client";
 
 import React from "react";
-import { useEffect, useState } from "react";
 
 interface BackgroundProps {
-  scale: string;
-  opacity: string;
+  scale?: string;
+  opacity?: string;
   position?: string;
   overflow?: string;
 }
 
 const Background: React.FC<BackgroundProps> = ({
-  scale,
-  opacity,
-  position,
-  overflow,
+  scale = "scale-100",
+  opacity = "opacity-100",
+  position = "fixed",
+  overflow = "overflow-hidden",
 }) => {
-  const [mouseXpercentage, setMouseXPercentage] = useState<number>(0);
-  const [mouseYpercentage, setMouseYPercentage] = useState<number>(0);
-
-  useEffect(() => {
-    const handleMouseMove = (event: MouseEvent) => {
-      const windowWidth = window.innerWidth;
-      const windowHeight = window.innerHeight;
-      const newMouseXPercentage = Math.round((event.pageX / windowWidth) * 100);
-      const newMouseYPercentage = Math.round(
-        (event.pageY / windowHeight) * 100
-      );
-
-      setMouseXPercentage(newMouseXPercentage);
-      setMouseYPercentage(newMouseYPercentage);
-    };
-
-    document.addEventListener("mousemove", handleMouseMove);
-
-    return () => {
-      document.removeEventListener("mousemove", handleMouseMove);
-    };
-  }, []);
-
-  const backgroundStyle: React.CSSProperties = {
-    background: `radial-gradient(at ${mouseXpercentage}% ${mouseYpercentage}%, #ff6a3d, #000000)`,
-  };
-
   return (
-    <React.Fragment>
+    <div
+      className={`w-full h-full ${position} top-0 left-0 -z-[1] ${overflow}`}
+    >
+      {/* Main background with image */}
       <div
-        className={`radial-gradient-styling absolute ${position} left-0 h-full w-full -z-[1]   ${opacity} ${scale} ${overflow}`}
-        style={backgroundStyle}
-      />
-    </React.Fragment>
+        className={`absolute inset-0 ${scale} ${opacity}`}
+        style={{
+          backgroundImage: 'url("/background.png")',
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+          backgroundRepeat: "no-repeat",
+          backgroundBlendMode: "normal",
+        }}
+      >
+        {/* Subtle overlay to enhance contrast with content */}
+        <div className="absolute inset-0 bg-black/20"></div>
+      </div>
+    </div>
   );
 };
 

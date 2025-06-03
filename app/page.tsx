@@ -8,7 +8,7 @@ const About = lazy(() => import("@/components/About"));
 const WhyUs = lazy(() => import("@/components/WhyUs"));
 const Services = lazy(() => import("@/components/Services"));
 const Works = lazy(() => import("@/components/Works"));
-const Contact = lazy(() => import("@/components/Contact"));
+const CTA = lazy(() => import("@/components/CTA"));
 const Footer = lazy(() => import("@/components/Footer"));
 
 const Skeleton = () => (
@@ -19,7 +19,7 @@ export default function HomePage() {
   return (
     <>
       <Suspense fallback={<Skeleton />}>
-        <main className="min-h-screen relative z-10">
+        <main className="min-h-screen relative z-10 bg-black/50">
           <ScrollProgress className="h-2 bg-orange-500" />
           <Header />
           <Hero />
@@ -32,7 +32,7 @@ export default function HomePage() {
           <WhyUs />
           <Services />
           <Works />
-          <Contact />
+          <CTA />
           <Footer />
         </main>
       </Suspense>
