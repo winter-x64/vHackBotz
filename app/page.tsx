@@ -11,19 +11,19 @@ const Works = lazy(() => import("@/components/Works"));
 const CTA = lazy(() => import("@/components/CTA"));
 const Footer = lazy(() => import("@/components/Footer"));
 
-const Skeleton = () => (
+const Loader= () => (
   <div className="min-h-screen w-full animate-pulse bg-muted/50" />
 );
 
 export default function HomePage() {
   return (
     <>
-      <Suspense fallback={<Skeleton />}>
-        <main className="min-h-screen relative z-10 bg-black/50">
+      <Suspense fallback={<Loader />}>
+        <main className="min-h-screen relative z-10">
           <ScrollProgress className="h-2 bg-orange-500" />
           <Header />
           <Hero />
-          <section className="w-full bg-black text-orange-400 font-normal">
+          <section className="w-full bg-black/80 text-orange-400 font-normal">
             <VelocityScroll numRows={1} defaultVelocity={2}>
               HACK • BUILD • DOMINATE •
             </VelocityScroll>

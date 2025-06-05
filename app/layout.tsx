@@ -8,8 +8,16 @@ const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "vHackBotz | Innovative Tech Solutions",
-  description: "vHackBotz is a cutting-edge tech startup providing innovative solutions for businesses of all sizes.",
-  keywords: ["tech", "startup", "innovation", "software", "development", "vHackBotz"],
+  description:
+    "vHackBotz is a cutting-edge tech startup providing innovative solutions for businesses of all sizes.",
+  keywords: [
+    "tech",
+    "startup",
+    "innovation",
+    "software",
+    "development",
+    "vHackBotz",
+  ],
 };
 
 export default function RootLayout({
@@ -29,11 +37,7 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
-          <Background
-            scale="scale-100"
-            opacity="opacity-30"
-            position="fixed"
-          />
+          <Background />
           <main className="flex-1">{children}</main>
         </ThemeProvider>
       </body>

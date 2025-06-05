@@ -24,10 +24,24 @@ export const navItems = [
 ];
 
 export const aboutUs = {
-  title: "Pioneering Tech Solutions",
-  subtitle: "Transforming Ideas into Reality",
+  headline: "Pioneering Tech Solutions",
+  subheadline: "Transforming Ideas into Reality",
   description:
     "vHackBotz is a cutting-edge technology company specializing in innovative solutions across web development, hardware integration, and creative design. Founded in 2018, we've been delivering exceptional digital experiences that help businesses thrive in the digital age.",
+  content: [
+    {
+      title: "Who We Are",
+      text: "We are a diverse team of engineers, designers, and visionaries passionate about pushing the boundaries of what's possible with technology. Our experts combine deep technical knowledge with creative problem-solving to deliver solutions that matter.",
+    },
+    {
+      title: "Our Approach",
+      text: "We believe in collaborative development that puts your needs first. Our agile methodology ensures transparent communication, rapid iterations, and solutions that evolve with your requirements.",
+    },
+    {
+      title: "Our Expertise",
+      text: "From cutting-edge web applications to IoT solutions and immersive digital experiences, our technical prowess spans across multiple domains. We specialize in turning complex problems into elegant, efficient solutions.",
+    },
+  ],
 };
 
 export const whyUs = [
@@ -51,29 +65,43 @@ export const whyUs = [
   },
 ];
 
-
 export const services = [
   {
     icon: <Code2 className="h-10 w-10" />,
     title: "Web Development",
-    description: "Full-stack web solutions with cutting-edge technologies.",
+    description:
+      "Enterprise-grade web applications engineered with modern frameworks and serverless architecture.",
+    points: [
+      "Enterprise SaaS solutions for enterprise business requirements",
+      "Robust architecture designed for seamless integration and extensibility",
+      "High-performance applications with 99.9% uptime guarantee",
+      "Comprehensive API development with industry-standard documentation",
+    ],
   },
   {
     icon: <Cpu className="h-10 w-10" />,
     title: "Hardware Solutions",
-    description: "Custom hardware development and IoT solutions.",
+    description:
+      "Custom embedded systems and IoT infrastructure designed for industrial applications.",
+    points: [
+      "Mission-critical embedded systems for industrial environments",
+      "End-to-end encrypted infrastructure ensuring data security",
+      "Advanced monitoring systems with predictive maintenance",
+      "Standards-compliant sensor networks for industrial automation",
+    ],
   },
   {
     icon: <Palette className="h-10 w-10" />,
     title: "Design Services",
-    description: "Creative design solutions for digital products.",
+    description:
+      "User-centered interface design and experience architecture focused on accessibility and conversion.",
+    points: [
+      "Evidence-based research methods driving user experience strategy",
+      "Accessibility-compliant interfaces meeting international standards",
+      "Scalable design frameworks ensuring consistent brand experience",
+      "Data-driven design optimization to maximize conversion metrics",
+    ],
   },
-];
-
-export const statsData = [
-  { number: "100+", label: "Projects Delivered" },
-  { number: "50+", label: "Happy Clients" },
-  { number: "5+", label: "Years Experience" },
 ];
 
 export const projects = [
@@ -156,3 +184,12 @@ export const socialLinks = [
   { icon: <Linkedin className="h-5 w-5" />, href: "#", label: "LinkedIn" },
   { icon: <Instagram className="h-5 w-5" />, href: "#", label: "Instagram" },
 ];
+
+export const ctaContent = {
+  badge: "Join the Innovation",
+  title: "Accelerate Your Business Growth with Impactful Solutions",
+  description:
+    "In today's rapidly evolving tech landscape, staying competitive requires innovative solutions. Our platform leverages cutting-edge AI to streamline operations, analyze data, and drive intelligent decision-making for forward-thinking businesses.",
+  primaryButtonText: "Book a Demo",
+  secondaryButtonText: "Contact Sales",
+};

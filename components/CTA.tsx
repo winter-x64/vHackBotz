@@ -1,10 +1,11 @@
 "use client";
+
 import React from "react";
-import { PhoneCall, Mail } from "lucide-react";
+import { PhoneCall, Mail, Sparkles } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent } from "@/components/ui/card";
-import { contactInfo } from "@/lib/constants";
+import { ctaContent, contactInfo } from "@/lib/constants";
 
 export default function CTA() {
   const calendarInfo = contactInfo.find(
@@ -13,52 +14,71 @@ export default function CTA() {
   const emailInfo = contactInfo.find((info) => info.title === "Email");
 
   return (
-    <div id="contact" className="container mx-auto py-12 md:py-16 px-4 sm:px-6">
-      <Card className="w-full max-w-4xl mx-auto border-2 border-[#ff6a3d] shadow-md bg-black/40 rounded-[40px]">
-        <CardContent className="p-5 sm:p-6 lg:p-10 w-full">
-          <div className="flex flex-col text-center gap-5 sm:gap-6 items-center">
-            <div>
-              <Badge className="bg-[#ff6a3d]/20 text-[#ff6a3d] hover:bg-[#ff6a3d]/30">
-                Get in Touch
-              </Badge>
+    <div
+      id="contact"
+      className="container mx-auto py-16 md:py-24 px-4 sm:px-6 relative"
+    >
+      <div className="absolute inset-0 overflow-hidden -z-10">
+        <div className="absolute top-1/4 left-1/4 size-64 bg-gradient-to-r from-orange-400 to-amber-500 rounded-full blur-3xl opacity-20"/>
+        <div className="absolute bottom-1/4 right-1/4 size-80 bg-gradient-to-r from-orange-500 to-red-500 rounded-full blur-3xl opacity-20"/>
+      </div>
+
+      <div className="animate-[fade-in_0.8s_ease-out]">
+        <Card className="w-full max-w-4xl mx-auto border border-[#ff6a3d]/30 shadow-2xl bg-black/40 backdrop-blur-xl rounded-3xl overflow-hidden">
+          <div className="absolute inset-0 bg-gradient-to-br from-[#ff6a3d]/5 via-orange-600/5 to-amber-600/5 opacity-50"/>
+          <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-[#ff6a3d] via-orange-500 to-amber-500"/>
+
+          <CardContent className="p-8 sm:p-10 lg:p-12 w-full relative z-10">
+            <div className="flex flex-col text-center gap-7 sm:gap-8 items-center">
+              <div className="transition duration-300 hover:scale-105">
+                <Badge className="bg-gradient-to-r from-[#ff6a3d] to-orange-500 text-white px-4 py-1.5 text-sm font-medium rounded-full shadow-xl hover:shadow-[#ff6a3d]/20 border-0">
+                  <Sparkles className="size-3.5 mr-2" /> {ctaContent.badge}
+                </Badge>
+              </div>
+
+              <div className="flex flex-col gap-4">
+                <h3 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-[#ff6a3d] to-amber-400 tracking-tight max-w-xl leading-tight">
+                  {ctaContent.title}
+                </h3>
+                <p className="text-base sm:text-lg text-white/80 leading-relaxed max-w-xl mx-auto font-light">
+                  {ctaContent.description}
+                </p>
+              </div>
+
+              <div className="flex flex-col sm:flex-row gap-5 mt-4 w-full max-w-md">
+                <div className="flex-1 transition duration-300 hover:scale-105 active:scale-95">
+                  <Button
+                    variant="outline"
+                    className="w-full border border-[#ff6a3d]/30 bg-black/30 text-white hover:bg-[#ff6a3d]/10 gap-3 py-6 rounded-xl font-medium text-base group transition duration-300"
+                    asChild
+                  >
+                    <a
+                      href={calendarInfo?.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      <span>{ctaContent.primaryButtonText}</span>
+                      <PhoneCall className="size-4" />
+                    </a>
+                  </Button>
+                </div>
+
+                <div className="flex-1 transition duration-300 hover:scale-105 active:scale-95">
+                  <Button
+                    className="w-full bg-gradient-to-r from-[#ff6a3d] to-orange-500 hover:from-[#ff6a3d]/90 hover:to-orange-600 text-white gap-3 py-6 rounded-xl font-medium text-base group shadow-xl shadow-[#ff6a3d]/20 border-0 transition duration-300"
+                    asChild
+                  >
+                    <a href={emailInfo?.href}>
+                      <span>{ctaContent.secondaryButtonText}</span>
+                      <Mail className="size-4 group-hover:translate-x-1 transition duration-300" />
+                    </a>
+                  </Button>
+                </div>
+              </div>
             </div>
-            <div className="flex flex-col gap-2">
-              <h3 className="text-xl sm:text-2xl md:text-3xl font-bold text-[#ff6a3d] tracking-tighter max-w-lg">
-                Try our platform today!
-              </h3>
-              <p className="text-sm sm:text-base md:text-lg text-white/80 leading-relaxed max-w-lg mx-auto">
-                Managing a small business today is already tough. Avoid further
-                complications by ditching outdated, tedious trade methods. Our
-                goal is to streamline SMB trade, making it easier and faster
-                than ever.
-              </p>
-            </div>
-            <div className="flex flex-row gap-4">
-              <Button
-                variant="outline"
-                className="border-[#ff6a3d]/70 bg-transparent text-white hover:bg-[#ff6a3d]/10 gap-4"
-                asChild
-              >
-                <a
-                  href={calendarInfo?.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  Jump on a call <PhoneCall className="w-4 h-4" />
-                </a>
-              </Button>
-              <Button
-                className="bg-[#ff6a3d] hover:bg-[#ff6a3d]/90 text-white gap-4"
-                asChild
-              >
-                <a href={emailInfo?.href}>
-                  Email us <Mail className="w-4 h-4" />
-                </a>
-              </Button>
-            </div>
-          </div>
-        </CardContent>
-      </Card>
+          </CardContent>
+        </Card>
+      </div>
     </div>
   );
 }

@@ -1,3 +1,5 @@
+"use client";
+
 import Link from "next/link";
 import { Zap } from "lucide-react";
 import { socialLinks } from "@/lib/constants";
@@ -15,15 +17,19 @@ export default function Footer() {
           </div>
 
           <div className="flex justify-end space-x-4">
-            {socialLinks.map((link, index) => (
-              <Link
+            {socialLinks.map((link) => (
+              <div
                 key={link.label}
-                href={link.href}
-                className="text-white-500 hover:text-orange-500 transition-colors"
-                aria-label={link.label}
+                className="transition-transform hover:-translate-y-1"
               >
-                {link.icon}
-              </Link>
+                <Link
+                  href={link.href}
+                  className="text-white-500 hover:text-orange-500 transition-colors"
+                  aria-label={link.label}
+                >
+                  {link.icon}
+                </Link>
+              </div>
             ))}
           </div>
         </div>
