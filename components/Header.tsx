@@ -89,7 +89,7 @@ export default function Header() {
           <div className="flex items-center">
             <Link href="/" className="flex items-center space-x-2">
               <Zap className="h-7 w-7 text-orange-500" />
-              <span className="font-bold text-lg">vHackBotz</span>
+              <span className="font-bold text-lg title">vHackBotz</span>
             </Link>
           </div>
 

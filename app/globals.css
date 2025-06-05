@@ -2,12 +2,20 @@
 
 @custom-variant dark (&:is(.dark *));
 
+/* Font declarations for locally downloaded font */
+@font-face {
+  font-family: 'FearFont';
+  src: local('FearFont'),
+    url('./fonts/FearFont.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
 @theme {
   --background-image-gradient-radial: radial-gradient(var(--tw-gradient-stops));
-  --background-image-gradient-conic: conic-gradient(
-    from 180deg at 50% 50%,
-    var(--tw-gradient-stops)
-  );
+  --background-image-gradient-conic: conic-gradient(from 180deg at 50% 50%,
+      var(--tw-gradient-stops));
 
   --radius-lg: var(--radius);
   --radius-md: calc(var(--radius) - 2px);
@@ -54,14 +62,17 @@
     from {
       height: 0;
     }
+
     to {
       height: var(--radix-accordion-content-height);
     }
   }
+
   @keyframes accordion-up {
     from {
       height: var(--radix-accordion-content-height);
     }
+
     to {
       height: 0;
     }
@@ -77,12 +88,24 @@
   color utility to any element that depends on these defaults.
 */
 @layer base {
+
   *,
   ::after,
   ::before,
   ::backdrop,
   ::file-selector-button {
     border-color: var(--color-gray-200, currentcolor);
+  }
+
+  /* Apply local downloaded font to headings */
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  .title {
+    font-family: 'FearFont', system-ui, sans-serif;
   }
 }
 
@@ -136,6 +159,7 @@
     --input: 240 5% 88%;
     --ring: 20 100% 50%;
   }
+
   .dark {
     --background: 222.2 84% 4.9%;
     --foreground: 210 40% 98%;

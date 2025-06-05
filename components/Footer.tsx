@@ -12,7 +12,7 @@ export default function Footer() {
           <div className="flex justify-start">
             <Link href="#hero" className="flex items-center space-x-2">
               <Zap className="h-6 w-6 text-orange-500" />
-              <span className="font-bold text-lg">vHackBotz</span>
+              <span className="font-bold text-lg title">vHackBotz</span>
             </Link>
           </div>
 

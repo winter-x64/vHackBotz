@@ -23,7 +23,7 @@ export default function HomePage() {
           <ScrollProgress className="h-2 bg-orange-500" />
           <Header />
           <Hero />
-          <section className="w-full bg-black/80 text-orange-400 font-normal">
+          <section className="w-full bg-black/80 text-orange-400 font-normal title">
             <VelocityScroll numRows={1} defaultVelocity={2}>
               HACK • BUILD • DOMINATE •
             </VelocityScroll>
