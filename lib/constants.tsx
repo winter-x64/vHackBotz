@@ -27,7 +27,7 @@ export const aboutUs = {
   headline: "Pioneering Tech Solutions",
   subheadline: "Transforming Ideas into Reality",
   description:
-    "vHackBotz is a cutting-edge technology company specializing in innovative solutions across web development, hardware integration, and creative design. Founded in 2018, we've been delivering exceptional digital experiences that help businesses thrive in the digital age.",
+    "vHackBotz is a cutting-edge technology company specializing in innovative solutions across web development, hardware integration, and creative design. We are proficient in delivering exceptional digital experiences that help businesses thrive in the digital age.",
   content: [
     {
       title: "Who We Are",
@@ -114,48 +114,9 @@ export const projects = [
       "https://images.pexels.com/photos/38544/imac-apple-mockup-app-38544.jpeg",
   },
   {
-    id: "ai-analytics",
-    title: "AI-Powered Analytics",
-    description:
-      "Advanced analytics platform using machine learning algorithms.",
-    image: "https://images.pexels.com/photos/669610/pexels-photo-669610.jpeg",
-  },
-  {
-    title: "Mobile Banking App",
-    description: "Secure and user-friendly mobile banking application.",
-    image: "https://images.pexels.com/photos/607812/pexels-photo-607812.jpeg",
-  },
-  {
     title: "Smart Home System",
     description: "IoT-based home automation system with voice control.",
     image: "https://images.pexels.com/photos/1714208/pexels-photo-1714208.jpeg",
-  },
-  {
-    id: "vr-training",
-    title: "Virtual Reality Training",
-    description:
-      "Immersive VR-based training solutions for various industries.",
-    image: "https://images.pexels.com/photos/8728560/pexels-photo-8728560.jpeg",
-  },
-  {
-    id: "quantum-computing",
-    title: "Quantum Computing Research",
-    description:
-      "Pioneering research into quantum algorithms and applications.",
-    image: "https://images.pexels.com/photos/373543/pexels-photo-373543.jpeg",
-  },
-  {
-    id: "delivery-robots",
-    title: "Autonomous Delivery Robots",
-    description: "Self-navigating robots for last-mile delivery solutions.",
-    image: "https://images.pexels.com/photos/8566570/pexels-photo-8566570.jpeg",
-  },
-  {
-    id: "cybersecurity",
-    title: "Cybersecurity Defense Platform",
-    description:
-      "Advanced threat detection and prevention system for enterprises.",
-    image: "https://images.pexels.com/photos/5380664/pexels-photo-5380664.jpeg",
   },
   {
     id: "edtech",
@@ -168,18 +129,17 @@ export const projects = [
 export const contactInfo = [
   {
     title: "Email",
-    value: "info@vhackbotz.com",
-    href: "mailto:info@vhackbotz.com",
+    value: "alvindennis80@gmail.com",
+    href: "mailto:alvindennis80@gmail.com",
   },
   {
     title: "Schedule a Meeting",
     value: "Book a time on our calendar",
-    href: "https://cal.com/vhackbotz/meeting",
+    href: "https://cal.com/vhackbotz",
   },
 ];
 
 export const socialLinks = [
-  { icon: <Twitter className="h-5 w-5" />, href: "#", label: "Twitter" },
   { icon: <Github className="h-5 w-5" />, href: "#", label: "Github" },
   { icon: <Linkedin className="h-5 w-5" />, href: "#", label: "LinkedIn" },
   { icon: <Instagram className="h-5 w-5" />, href: "#", label: "Instagram" },

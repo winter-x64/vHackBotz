@@ -1,15 +1,15 @@
 import "./globals.css";
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Poppins } from "next/font/google";
 import { ThemeProvider } from "@/app/theme-provider";
 import Background from "@/components/ui/background";
 
-const inter = Inter({ subsets: ["latin"] });
+const poppins = Poppins({  subsets:["latin", "latin-ext"], weight: ["100", "200", "400"] });
 
 export const metadata: Metadata = {
   title: "vHackBotz | Innovative Tech Solutions",
   description:
-    "vHackBotz is a cutting-edge tech startup providing innovative solutions for businesses of all sizes.",
+    "vHackBotz is a cutting-edge tech startup specializing in AI-driven software solutions. We transform complex business challenges into scalable technology advantages, driving innovation in the digital landscape.",
   keywords: [
     "tech",
     "startup",
@@ -17,6 +17,22 @@ export const metadata: Metadata = {
     "software",
     "development",
     "vHackBotz",
+    "digital transformation",
+    "tech consultancy",
+    "software engineering",
+    "web development",
+    "technology services",
+    "custom software",
+    "hardware solutions",
+    "IoT devices",
+    "prototype development",
+    "UI/UX design",
+    "front-end development",
+    "hardware startup",
+    "electronic engineering",
+    "product design",
+    "rapid prototyping",
+    "hardware-software integration",
   ],
 };
 
@@ -30,7 +46,7 @@ export default function RootLayout({
       <head>
         <link rel="icon" href="/favicon.ico" sizes="any" />
       </head>
-      <body className={inter.className}>
+      <body className={poppins.className}>
         <ThemeProvider
           attribute="class"
           defaultTheme="dark"
@@ -38,7 +54,7 @@ export default function RootLayout({
           disableTransitionOnChange
         >
           <Background />
-          <main className="flex-1">{children}</main>
+          <main>{children}</main>
         </ThemeProvider>
       </body>
     </html>

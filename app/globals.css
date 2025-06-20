@@ -107,6 +107,23 @@
   .title {
     font-family: 'FearFont', system-ui, sans-serif;
   }
+
+  ::-webkit-scrollbar {
+    display: none;
+  }
+
+  * {
+    scrollbar-width: none;
+  }
+
+  * {
+    -ms-overflow-style: none;
+  }
+
+  html,
+  body {
+    overflow-y: auto;
+  }
 }
 
 @layer base {
