@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
-import { Zap } from "lucide-react";
+import Image from "next/image";
 import { navItems } from "@/lib/constants";
 
 export default function Header() {
@@ -87,9 +87,15 @@ export default function Header() {
       <div className="hidden md:block bg-black/90 backdrop-blur-md shadow-lg px-8 py-3 rounded-full border border-white border-opacity-40">
         <div className="flex items-center space-x-8 h-12">
           <div className="flex items-center">
-            <Link href="/" className="flex items-center space-x-2">
-              <Zap className="h-7 w-7 text-orange-500" />
-              <span className="font-bold text-lg title">vHackBotz</span>
+            <Link href="/" className="flex items-center space-x-1">
+              <Image
+                src="/vhackbotz.svg"
+                alt="vHackBotz Logo"
+                width={48}
+                height={48}
+                className="text-orange-500"
+              />
+              <span className="font-bold text-xl title">vHackBotz</span>
             </Link>
           </div>
 
@@ -103,8 +109,14 @@ export default function Header() {
 
       <div className="md:hidden bg-black/90 backdrop-blur-md shadow-lg px-6 py-3 rounded-full border border-white border-opacity-40">
         <div className="flex items-center justify-between space-x-4">
-          <Link href="#hero" className="flex items-center space-x-2">
-            <Zap className="h-6 w-6 text-orange-500" />
+          <Link href="#hero" className="flex items-center">
+            <Image
+              src="/vhackbotz.svg"
+              alt="vHackBotz Logo"
+              width={48}
+              height={48}
+              className="text-orange-500"
+            />
           </Link>
 
           <nav className="flex items-center space-x-4">

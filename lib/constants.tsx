@@ -1,6 +1,5 @@
 import {
   Code2,
-  Cpu,
   Palette,
   Lightbulb,
   Rocket,
@@ -10,9 +9,11 @@ import {
   Settings,
   Briefcase,
   Github,
-  Twitter,
   Linkedin,
   Instagram,
+  MessagesSquare,
+  Brain,
+  TestTubeDiagonal,
 } from "lucide-react";
 
 export const navItems = [
@@ -27,129 +28,138 @@ export const aboutUs = {
   headline: "Pioneering Tech Solutions",
   subheadline: "Transforming Ideas into Reality",
   description:
-    "vHackBotz is a cutting-edge technology company specializing in innovative solutions across web development, hardware integration, and creative design. We are proficient in delivering exceptional digital experiences that help businesses thrive in the digital age.",
+    "We don’t just build websites or brands. We design digital experiences that move fast, scale effortlessly, and leave an impression. From bold startups to growing enterprises, our work combines design-led thinking, modern development, and an obsession with quality.",
   content: [
     {
       title: "Who We Are",
-      text: "We are a diverse team of engineers, designers, and visionaries passionate about pushing the boundaries of what's possible with technology. Our experts combine deep technical knowledge with creative problem-solving to deliver solutions that matter.",
+      text: "vHackBotz is a creative-tech studio where curiosity meets execution. We’re a collective of designers, engineers, and strategists who believe in building what we wish existed then sharing it with the world. Whether it’s a custom SaaS platform, a reimagined brand identity, or an internal tool that becomes your next product, we love turning ideas into impact.",
     },
     {
       title: "Our Approach",
-      text: "We believe in collaborative development that puts your needs first. Our agile methodology ensures transparent communication, rapid iterations, and solutions that evolve with your requirements.",
+      text: "Design-led. Code-driven. Brand-focused. We start by understanding your vision, your users, and your goals. Then we move quickly, prototyping and refining until the solution is not only functional but unforgettable. Collaboration is at the heart of everything we do: we work as an extension of your team to launch with confidence.",
     },
     {
       title: "Our Expertise",
-      text: "From cutting-edge web applications to IoT solutions and immersive digital experiences, our technical prowess spans across multiple domains. We specialize in turning complex problems into elegant, efficient solutions.",
+      text: "From full-stack product development and responsive websites to distinctive brand systems and content strategies, our expertise bridges design and engineering. We thrive at the intersection of creativity and technology—and we bring that mindset to every project.",
     },
   ],
 };
 
 export const whyUs = [
   {
-    icon: <Lightbulb className="h-8 w-8 text-primary" />,
-    title: "Innovation First",
+    icon: <Rocket className="h-8 w-8 text-primary" />,
+    title: "We Think Like Founders",
     description:
-      "We stay ahead of technological trends to deliver forward-thinking solutions.",
+      "We’ve built our own products  so we understand what it takes to launch fast, stay lean, and create value. We're not just an agency  we’re builders at heart.",
   },
   {
     icon: <Code2 className="h-8 w-8 text-primary" />,
-    title: "Technical Excellence",
+    title: "Design Meets Code",
     description:
-      "Our team of experts ensures the highest quality in every project we deliver.",
+      "We blend clean, intentional design with scalable engineering. Whether you need a landing page or a full SaaS platform, we bring the best of UI/UX and full-stack development..",
   },
   {
-    icon: <Rocket className="h-8 w-8 text-primary" />,
-    title: "Rapid Delivery",
+    icon: <Brain className="h-8 w-8 text-primary" />,
+    title: "Strategy-First Approach",
     description:
-      "We believe in agile development to bring your ideas to market faster.",
+      "From positioning and messaging to branding and launch planning, we help you make the right moves  before and after you ship.",
+  },
+  {
+    icon: <TestTubeDiagonal className="h-8 w-8 text-primary" />,
+    title: "We Experiment So You Can Grow",
+    description:
+      "We're constantly building, testing, and evolving. Our studio model lets us innovate internally and apply real insights to every project we take on.",
   },
 ];
 
 export const services = [
   {
     icon: <Code2 className="h-10 w-10" />,
-    title: "Web Development",
+    title: "Product Engineering",
     description:
-      "Enterprise-grade web applications engineered with modern frameworks and serverless architecture.",
+      "Custom websites, MVPs, and full-stack SaaS platforms built with the latest technologies for performance and scalability.",
     points: [
-      "Enterprise SaaS solutions for enterprise business requirements",
-      "Robust architecture designed for seamless integration and extensibility",
-      "High-performance applications with 99.9% uptime guarantee",
-      "Comprehensive API development with industry-standard documentation",
-    ],
-  },
-  {
-    icon: <Cpu className="h-10 w-10" />,
-    title: "Hardware Solutions",
-    description:
-      "Custom embedded systems and IoT infrastructure designed for industrial applications.",
-    points: [
-      "Mission-critical embedded systems for industrial environments",
-      "End-to-end encrypted infrastructure ensuring data security",
-      "Advanced monitoring systems with predictive maintenance",
-      "Standards-compliant sensor networks for industrial automation",
+      "Mobile-first, responsive design to ensure a seamless experience across devices.",
+      "API integrations, automation, and secure deployments that grow with your business.",
     ],
   },
   {
     icon: <Palette className="h-10 w-10" />,
-    title: "Design Services",
+    title: "Brand Identity",
     description:
-      "User-centered interface design and experience architecture focused on accessibility and conversion.",
+      "Logo design, visual identity systems, and brand guidelines that make your business stand out and build trust.",
     points: [
-      "Evidence-based research methods driving user experience strategy",
-      "Accessibility-compliant interfaces meeting international standards",
-      "Scalable design frameworks ensuring consistent brand experience",
-      "Data-driven design optimization to maximize conversion metrics",
+      "Comprehensive brand kits including color palettes, typography, and usage rules.",
+      "Consistent visual storytelling across all your digital touchpoints.",
+    ],
+  },
+  {
+    icon: <MessagesSquare className="h-10 w-10" />,
+    title: "Social Media Marketing",
+    description:
+      "Strategy, content creation, and daily management to grow your brand and engage your audience on every platform.",
+    points: [
+      "Campaign planning and scheduling tailored to your target audience.",
+      "Performance tracking and optimization to maximize reach and conversions.",
+    ],
+  },
+  {
+    icon: <Lightbulb className="h-10 w-10" />,
+    title: "Studio Experiments",
+    description:
+      "We launch our own products to solve real problems and test bold ideas.",
+    points: [
+      "Rapid prototyping and market validation to identify new opportunities.",
+      "Dedicated support and continuous improvement for products we incubate.",
     ],
   },
 ];
 
 export const projects = [
   {
-    id: "ecommerce",
-    title: "E-Commerce Platform",
+    id: "SaaS",
+    title: "DropaNote",
     description:
-      "A modern e-commerce solution with real-time inventory management.",
-    image:
-      "https://images.pexels.com/photos/38544/imac-apple-mockup-app-38544.jpeg",
+      "DropaNote is a lightweight feedback collection tool that allows users to create embeddable feedback forms instantly.",
+    image: "/dropanote.svg",
+    link: "https://dropanote.onrender.com/",
   },
   {
-    title: "Smart Home System",
-    description: "IoT-based home automation system with voice control.",
-    image: "https://images.pexels.com/photos/1714208/pexels-photo-1714208.jpeg",
+    id: "SaaS",
+    title: "BuilderClan Website",
+    description:
+      "BuilderClan is a tech community where innovators, developers, and enthusiasts come together to collaborate, learn, and build impactful projects.",
+    image: "/builderclan-site.svg",
+    link: "https://builderclan.vercel.app",
   },
   {
     id: "edtech",
     title: "EdTech Learning Platform",
     description: "Personalized learning experiences powered by AI adaptivity.",
     image: "https://images.pexels.com/photos/5905885/pexels-photo-5905885.jpeg",
+    link: "https://edtech.vhackbotz.com",
   },
 ];
 
-export const contactInfo = [
-  {
-    title: "Email",
-    value: "alvindennis80@gmail.com",
-    href: "mailto:alvindennis80@gmail.com",
-  },
-  {
-    title: "Schedule a Meeting",
-    value: "Book a time on our calendar",
+export const cta = {
+  badge: "Join the Process",
+  title: "Ready to Launch Your Next Big Idea?",
+  description:
+    "From startup SaaS products to brand makeovers, vHackBotz helps founders build what they've always wanted. Let's create something remarkable together.",
+  primaryButton: {
+    text: "Book a Free Consultation",
     href: "https://cal.com/vhackbotz",
+    type: "calendar",
   },
-];
+  secondaryButton: {
+    text: "For Enquiries",
+    href: "mailto:alvindennis80@gmail.com",
+    type: "email",
+  },
+};
 
 export const socialLinks = [
   { icon: <Github className="h-5 w-5" />, href: "#", label: "Github" },
   { icon: <Linkedin className="h-5 w-5" />, href: "#", label: "LinkedIn" },
   { icon: <Instagram className="h-5 w-5" />, href: "#", label: "Instagram" },
 ];
-
-export const ctaContent = {
-  badge: "Join the Innovation",
-  title: "Accelerate Your Business Growth with Impactful Solutions",
-  description:
-    "In today's rapidly evolving tech landscape, staying competitive requires innovative solutions. Our platform leverages cutting-edge AI to streamline operations, analyze data, and drive intelligent decision-making for forward-thinking businesses.",
-  primaryButtonText: "Book a Demo",
-  secondaryButtonText: "Contact Sales",
-};

@@ -1,10 +1,19 @@
 import "./globals.css";
 import type { Metadata } from "next";
-import { Poppins } from "next/font/google";
+import { Poppins, Montserrat, Raleway } from "next/font/google";
 import { ThemeProvider } from "@/app/theme-provider";
 import Background from "@/components/ui/background";
 
-const poppins = Poppins({  subsets:["latin", "latin-ext"], weight: ["100", "200", "400"] });
+const montserrat = Montserrat({
+  subsets: ["latin", "latin-ext"],
+  weight: ["100", "200", "400", "500", "600", "700"],
+  variable: "--font-montserrat",
+});
+const raleway = Raleway({
+  subsets: ["latin", "latin-ext"],
+  weight: ["100", "200", "400", "500", "600", "700"],
+  variable: "--font-raleway",
+});
 
 export const metadata: Metadata = {
   title: "vHackBotz | Innovative Tech Solutions",
@@ -44,9 +53,9 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <head>
-        <link rel="icon" href="/favicon.ico" sizes="any" />
+        <link rel="icon" href="/vhackbotz.svg" sizes="any" />
       </head>
-      <body className={poppins.className}>
+      <body className={`${montserrat.className} ${raleway.variable}`}>
         <ThemeProvider
           attribute="class"
           defaultTheme="dark"

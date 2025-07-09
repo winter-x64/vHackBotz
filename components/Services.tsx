@@ -13,15 +13,12 @@ export default function Services() {
       <div className="absolute inset-0 bg-[radial-gradient(#ff6a3d20_1px,transparent_1px)] bg-[length:20px_20px] opacity-20" />
 
       <div className="relative z-10">
-        <h2 className="text-4xl md:text-5xl lg:text-6xl font-inter font-semibold text-white text-center mb-4 md:mb-6 bg-clip-text text-transparent bg-gradient-to-r from-[#ff6a3d] to-[#ffad87]">
-          Services
+        <h2 className="text-4xl md:text-5xl lg:text-6xl font-inter font-semibold text-center mb-6 md:mb-8">
+          OUR{" "}
+          <span className="bg-clip-text text-transparent bg-gradient-to-r from-[#ff6a3d] to-[#ff9d6a]">
+            SERVICES
+          </span>
         </h2>
-
-        <p className="text-gray-300 text-center mb-10 max-w-3xl mx-auto">
-          Delivering enterprise-grade technology solutions engineered for
-          performance, scalability, and security to accelerate your digital
-          transformation initiatives.
-        </p>
 
         <div className="lg:hidden space-y-6">
           {services.map((service) => (

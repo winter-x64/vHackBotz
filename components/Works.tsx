@@ -16,9 +16,9 @@ export default function Works() {
 
       <div className="relative z-10">
         <h2 className="text-4xl md:text-5xl lg:text-6xl font-inter font-semibold text-center mb-6 md:mb-8">
-          Our{" "}
+          OUR{" "}
           <span className="bg-clip-text text-transparent bg-gradient-to-r from-[#ff6a3d] to-[#ff9d6a]">
-            Projects
+            PROJECTS
           </span>
         </h2>
 
@@ -45,9 +45,17 @@ export default function Works() {
 
                 <a
                   className="absolute inset-0 text-white z-20 p-5 flex flex-col justify-end"
-                  href="https://localhost:3000"
+                  href={project.link}
+                  target="_blank"
+                  rel="noopener noreferrer"
                 >
                   <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover/article:opacity-100 transition-opacity duration-300 pointer-events-none" />
+                  
+                  <div className="absolute top-4 left-4 opacity-0 group-hover/article:opacity-100 transition-opacity duration-300 ease-out group-hover/article:delay-100">
+                    <span className="text-xs text-[#ff6a3d] bg-black font-normal px-2 py-1 rounded-md border border-[#ff6a3d]/30">
+                      {project.id}
+                    </span>
+                  </div>
 
                   <div className="relative overflow-hidden">
                     <h2 className="text-2xl md:text-3xl font-medium md:opacity-0 group-hover/article:opacity-100 group-focus-within/article:opacity-100 md:translate-y-2 group-hover/article:translate-y-0 group-focus-within/article:translate-y-0 transition duration-300 ease-out group-hover/article:delay-200 group-focus-within/article:delay-200 text-shadow-sm">
@@ -67,6 +75,7 @@ export default function Works() {
                 </a>
 
                 <div className="absolute inset-0 bg-black/10 group-hover/article:bg-black/0 transition-all duration-300" />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent z-10" />
 
                 <Image
                   className="object-cover h-72 md:h-[420px] w-full transition-transform duration-700 ease-out group-hover/article:scale-110"
@@ -80,13 +89,13 @@ export default function Works() {
             ))}
           </div>
 
-          <div className="text-center mt-10">
+          {/* <div className="text-center mt-10">
             <div className="inline-block backdrop-blur-md bg-gradient-to-r from-[#ff6a3d]/10 to-[#ff6a3d]/20 p-1 rounded-xl transition-transform hover:scale-105 active:scale-95">
               <Button className="bg-gradient-to-r from-[#ff6a3d] to-[#ff8c6a] text-white font-medium px-8 py-3 rounded-lg shadow-lg shadow-[#ff6a3d]/30 hover:shadow-xl hover:shadow-[#ff6a3d]/40 transition-all duration-300">
                 Explore All Projects
               </Button>
             </div>
-          </div>
+          </div> */}
         </Card>
       </div>
     </section>

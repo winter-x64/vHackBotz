@@ -12,9 +12,9 @@ export default function About() {
     >
       <h2 className="text-4xl md:text-5xl lg:text-6xl font-inter font-semibold text-white text-center mb-16">
         <span className="bg-clip-text text-transparent bg-gradient-to-r from-[#ff6a3d] to-[#ff9d6a]">
-          About
+          ABOUT
         </span>{" "}
-        Us
+        US
       </h2>
 
       <div className="relative rounded-3xl bg-black/30 p-10 backdrop-blur-xl mb-24 border border-white/5 max-w-4xl mx-auto shadow-[0_0_15px_rgba(255,106,61,0.15)]">

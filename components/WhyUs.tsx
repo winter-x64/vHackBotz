@@ -14,11 +14,11 @@ export default function WhyUs() {
 
       <h2 className="text-4xl md:text-5xl lg:text-6xl font-inter font-semibold text-white text-center mb-16">
         <span className="bg-clip-text text-transparent bg-gradient-to-r from-[#ff6a3d] to-[#ff9d6a]">
-          Why
+          WHY
         </span>{" "}
-        Us
+        US
       </h2>
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-10 lg:gap-12 max-w-7xl mx-auto relative">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 md:gap-10 lg:gap-12 max-w-7xl mx-auto relative">
         {whyUs.map((item, index) => (
           <div
             key={item.title}
@@ -27,7 +27,6 @@ export default function WhyUs() {
             onMouseLeave={() => setHoveredCard(null)}
             style={{
               transitionDelay: `${index * 50}ms`,
-              transform: `translateY(${(index % 3) * 10}px)`,
               cursor: "pointer",
             }}
           >
@@ -44,7 +43,7 @@ export default function WhyUs() {
             />
 
             <Card
-              className="aspect-square group bg-black/20 backdrop-filter backdrop-blur-xl rounded-[30px] border-2 border-[#ff6a3d] transition-all duration-500 overflow-hidden relative hover:scale-[1.03] w-full"
+              className="h-[320px] md:h-[360px] lg:h-[400px] group bg-black/40 backdrop-blur-xl rounded-[30px] border-2 border-[#ff6a3d] transition-all duration-500 overflow-hidden relative hover:scale-[1.03] w-full flex flex-col"
               style={{
                 boxShadow:
                   hoveredCard === index
@@ -71,7 +70,7 @@ export default function WhyUs() {
               </div>
 
               <div
-                className="absolute inset-[2px] rounded-[28px] bg-gradient-to-br from-black/90 to-black/80 p-6 md:p-10 h-full flex flex-col justify-between backdrop-blur-sm overflow-hidden transition-all duration-500"
+                className="absolute inset-[2px] rounded-[28px] bg-gradient-to-br from-black/80 to-black/60 p-4 md:p-6 lg:p-6 h-full flex flex-col justify-between backdrop-blur-sm overflow-hidden transition-all duration-500"
                 style={{
                   boxShadow:
                     hoveredCard === index
@@ -82,7 +81,7 @@ export default function WhyUs() {
                 <div className="absolute -top-[150px] -right-[150px] w-[300px] h-[300px] rounded-full bg-gradient-to-br from-[#ff6a3d]/30 to-[#ff8a00]/10 opacity-0 group-hover:opacity-100 transition-opacity duration-700 blur-2xl" />
 
                 <div
-                  className="icon-container mb-6 transition-all duration-300 ease-out relative"
+                  className="icon-container mb-4 md:mb-5 lg:mb-6 transition-all duration-300 ease-out relative"
                   style={{
                     color: hoveredCard === index ? "#ff8a00" : "#ff6a3d",
                     transform:
@@ -97,9 +96,9 @@ export default function WhyUs() {
                   {item.icon}
                 </div>
 
-                <div className="space-y-4 relative">
+                <div className="space-y-3 md:space-y-4 lg:space-y-4 relative flex-1">
                   <h3
-                    className="text-xl md:text-2xl lg:text-3xl font-bold transition-all duration-300 ease-out"
+                    className="text-2xl md:text-2xl lg:text-3xl font-bold transition-all duration-300 ease-out leading-tight"
                     style={{
                       color: hoveredCard === index ? "#ff6a3d" : "white",
                       transform:
@@ -115,7 +114,7 @@ export default function WhyUs() {
                     {item.title}
                   </h3>
                   <p
-                    className="text-sm md:text-base lg:text-lg transition-all duration-300 ease-out"
+                    className="text-base md:text-base lg:text-lg transition-all duration-300 ease-out leading-relaxed"
                     style={{
                       color:
                         hoveredCard === index

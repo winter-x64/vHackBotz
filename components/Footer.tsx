@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { Zap } from "lucide-react";
+import Image from "next/image";
 import { socialLinks } from "@/lib/constants";
 
 export default function Footer() {
@@ -10,8 +10,13 @@ export default function Footer() {
       <div className="container mx-auto px-4 py-6 sm:px-6 lg:px-8">
         <div className="flex flex-row items-center justify-between w-full">
           <div className="flex justify-start">
-            <Link href="#hero" className="flex items-center space-x-2">
-              <Zap className="h-6 w-6 text-orange-500" />
+            <Link href="#hero" className="flex items-center space-x-1">
+              <Image
+                src="/vhackbotz.svg"
+                alt="vHackBotz Logo"
+                width={48}
+                height={48}
+              />
               <span className="font-bold text-lg title">vHackBotz</span>
             </Link>
           </div>

@@ -25,7 +25,7 @@ export default function HomePage() {
           <Hero />
           <section className="w-full bg-black/80 text-orange-400 font-normal title">
             <VelocityScroll numRows={1} defaultVelocity={2}>
-              HACK • BUILD • DOMINATE •
+              DESIGN • BUILD • LAUNCH •
             </VelocityScroll>
           </section>
           <About />

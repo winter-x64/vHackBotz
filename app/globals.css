@@ -2,16 +2,6 @@
 
 @custom-variant dark (&:is(.dark *));
 
-/* Font declarations for locally downloaded font */
-@font-face {
-  font-family: 'FearFont';
-  src: local('FearFont'),
-    url('./fonts/FearFont.ttf') format('truetype');
-  font-weight: normal;
-  font-style: normal;
-  font-display: swap;
-}
-
 @theme {
   --background-image-gradient-radial: radial-gradient(var(--tw-gradient-stops));
   --background-image-gradient-conic: conic-gradient(from 180deg at 50% 50%,
@@ -97,7 +87,6 @@
     border-color: var(--color-gray-200, currentcolor);
   }
 
-  /* Apply local downloaded font to headings */
   h1,
   h2,
   h3,
@@ -105,7 +94,7 @@
   h5,
   h6,
   .title {
-    font-family: 'FearFont', system-ui, sans-serif;
+    font-family: var(--font-raleway), system-ui, sans-serif;
   }
 
   ::-webkit-scrollbar {
