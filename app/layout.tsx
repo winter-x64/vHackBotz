@@ -1,6 +1,6 @@
 import "./globals.css";
 import type { Metadata } from "next";
-import { Poppins, Montserrat, Raleway } from "next/font/google";
+import { Montserrat, Raleway } from "next/font/google";
 import { ThemeProvider } from "@/app/theme-provider";
 import Background from "@/components/ui/background";
 
@@ -20,12 +20,10 @@ export const metadata: Metadata = {
   description:
     "vHackBotz is a cutting-edge tech startup specializing in AI-driven software solutions. We transform complex business challenges into scalable technology advantages, driving innovation in the digital landscape.",
   keywords: [
-    "tech",
-    "startup",
-    "innovation",
-    "software",
-    "development",
-    "vHackBotz",
+    "tech startup",
+    "software development",
+    "AI solutions",
+    "web development",
     "digital transformation",
     "tech consultancy",
     "software engineering",

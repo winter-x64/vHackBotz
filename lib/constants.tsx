@@ -56,7 +56,7 @@ export const whyUs = [
     icon: <Code2 className="h-8 w-8 text-primary" />,
     title: "Design Meets Code",
     description:
-      "We blend clean, intentional design with scalable engineering. Whether you need a landing page or a full SaaS platform, we bring the best of UI/UX and full-stack development..",
+      "We blend clean, intentional design with scalable engineering. Whether you need a landing page or a full SaaS platform, we bring the best of UI/UX and full-stack development.",
   },
   {
     icon: <Brain className="h-8 w-8 text-primary" />,

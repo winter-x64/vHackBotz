@@ -114,7 +114,7 @@ export default function WhyUs() {
                     {item.title}
                   </h3>
                   <p
-                    className="text-base md:text-base lg:text-lg transition-all duration-300 ease-out leading-relaxed"
+                    className="text-lg md:text-base lg:text-base transition-all duration-300 ease-out leading-relaxed"
                     style={{
                       color:
                         hoveredCard === index
