@@ -8,14 +8,14 @@ export default function Footer() {
   return (
     <footer>
       <div className="container mx-auto px-4 py-8 sm:px-6 lg:px-8">
-        <div className="flex flex-col sm:flex-row items-center justify-between gap-6 sm:gap-4 w-full">
+        <div className="flex flex-row items-center justify-between gap-4 w-full">
           <div className="flex items-center">
-            <Link href="#hero" className="flex items-center space-x-3 group">
+            <Link href="#hero" className="flex items-center space-x-2 group">
               <Image
                 src="/vhackbotz.svg"
                 alt="vHackBotz Logo"
-                width={36}
-                height={36}
+                width={32}
+                height={32}
                 className="flex-shrink-0 transition-transform group-hover:scale-105"
               />
               <span className="font-bold text-xl title leading-none transition-colors group-hover:text-orange-500">
