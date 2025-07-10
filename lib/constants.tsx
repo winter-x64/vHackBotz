@@ -125,7 +125,7 @@ export const projects = [
     link: "https://dropanote.onrender.com/",
   },
   {
-    id: "SaaS",
+    id: "Product",
     title: "BuilderClan Website",
     description:
       "BuilderClan is a tech community where innovators, developers, and enthusiasts come together to collaborate, learn, and build impactful projects.",

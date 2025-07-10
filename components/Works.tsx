@@ -50,7 +50,7 @@ export default function Works() {
                   rel="noopener noreferrer"
                 >
                   <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover/article:opacity-100 transition-opacity duration-300 pointer-events-none" />
-                  
+
                   <div className="absolute top-4 left-4 opacity-0 group-hover/article:opacity-100 transition-opacity duration-300 ease-out group-hover/article:delay-100">
                     <span className="text-xs text-[#ff6a3d] bg-black font-normal px-2 py-1 rounded-md border border-[#ff6a3d]/30">
                       {project.id}
@@ -83,7 +83,7 @@ export default function Works() {
                   alt={project.title}
                   width={960}
                   height={480}
-                  priority
+                  loading="lazy"
                 />
               </article>
             ))}
