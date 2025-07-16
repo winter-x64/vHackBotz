@@ -12,7 +12,6 @@ export default function Hero() {
       id="hero"
       className="relative w-full shadow-none min-h-screen flex flex-col items-center md:items-start justify-center bg-transparent overflow-visible border-0"
     >
-      {/* Mobile Globe Background - only visible on mobile */}
       <div className="absolute inset-0 lg:hidden flex items-end justify-center z-[1] pb-20">
         <div className="w-full h-full max-w-[350px] aspect-square flex items-center justify-center opacity-60">
           <Earth
@@ -24,10 +23,7 @@ export default function Hero() {
           />
         </div>
       </div>
-
-      {/* Mobile Overlay for text visibility - only visible on mobile */}
       <div className="absolute inset-0 lg:hidden bg-black/40 backdrop-blur-[1px] z-[2]" />
-
       <CardContent className="p-0 w-full border-0 relative z-10">
         <div className="container mx-auto px-4 sm:px-6 py-12 md:py-24">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16 items-center">
@@ -52,10 +48,6 @@ export default function Hero() {
                   </span>
                 </h1>
               </div>
-
-              <p className="text-white text-lg sm:text-xl md:text-2xl font-normal mb-4 md:mb-6 max-w-[600px] mx-auto md:mx-0 leading-relaxed">
-                Your vision. Our expertise. Exceptional results.
-              </p>
 
               <p className="text-white text-sm sm:text-base md:text-lg font-normal mb-8 md:mb-10 max-w-[500px] mx-auto md:mx-0 leading-relaxed">
                 We blend design, development, and experimentation to craft
