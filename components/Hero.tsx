@@ -12,10 +12,26 @@ export default function Hero() {
       id="hero"
       className="relative w-full shadow-none min-h-screen flex flex-col items-center md:items-start justify-center bg-transparent overflow-visible border-0"
     >
+      {/* Mobile Globe Background - only visible on mobile */}
+      <div className="absolute inset-0 lg:hidden flex items-end justify-center z-[1] pb-20">
+        <div className="w-full h-full max-w-[350px] aspect-square flex items-center justify-center opacity-60">
+          <Earth
+            baseColor={[1, 0.416, 0.24]}
+            markerColor={[1, 0.54, 0.36]}
+            glowColor={[1, 0.416, 0.24]}
+            scale={0.8}
+            className="max-w-[350px]"
+          />
+        </div>
+      </div>
+
+      {/* Mobile Overlay for text visibility - only visible on mobile */}
+      <div className="absolute inset-0 lg:hidden bg-black/40 backdrop-blur-[1px] z-[2]" />
+
       <CardContent className="p-0 w-full border-0 relative z-10">
         <div className="container mx-auto px-4 sm:px-6 py-12 md:py-24">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16 items-center">
-            <div className="flex flex-col justify-center text-center md:text-left col-span-1 lg:col-span-5 order-2 lg:order-1 lg:pr-8">
+            <div className="flex flex-col justify-center text-center md:text-left col-span-1 lg:col-span-5 order-2 lg:order-1 lg:pr-8 relative z-20">
               <div className="relative mb-6 md:mb-8">
                 <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-bold text-white leading-[1.1] tracking-tight">
                   <span className="block mb-3 text-white relative">
@@ -37,11 +53,14 @@ export default function Hero() {
                 </h1>
               </div>
 
-              <p className="text-white/80 text-sm sm:text-base md:text-lg font-inter mb-8 md:mb-10 max-w-[500px] mx-auto md:mx-0 leading-relaxed">
-                We blend design, development, and experimentation
-                to craft standout digital products. From custom websites and
-                brand identities to our own tools, we help you build with
-                confidence.
+              <p className="text-white text-lg sm:text-xl md:text-2xl font-normal mb-4 md:mb-6 max-w-[600px] mx-auto md:mx-0 leading-relaxed">
+                Your vision. Our expertise. Exceptional results.
+              </p>
+
+              <p className="text-white text-sm sm:text-base md:text-lg font-normal mb-8 md:mb-10 max-w-[500px] mx-auto md:mx-0 leading-relaxed">
+                We blend design, development, and experimentation to craft
+                standout digital products. From custom websites and brand
+                identities to our own tools, we help you build with confidence.
               </p>
 
               <div className="flex flex-col sm:flex-row gap-4 sm:gap-5 mt-2 mb-8 sm:mb-12 mx-auto md:mx-0">
