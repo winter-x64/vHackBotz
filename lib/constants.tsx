@@ -132,13 +132,13 @@ export const projects = [
     image: "/builderclan-site.svg",
     link: "https://builderclan.vercel.app",
   },
-  {
-    id: "edtech",
-    title: "EdTech Learning Platform",
-    description: "Personalized learning experiences powered by AI adaptivity.",
-    image: "https://images.pexels.com/photos/5905885/pexels-photo-5905885.jpeg",
-    link: "https://edtech.vhackbotz.com",
-  },
+  // {
+  //   id: "edtech",
+  //   title: "EdTech Learning Platform",
+  //   description: "Personalized learning experiences powered by AI adaptivity.",
+  //   image: "https://images.pexels.com/photos/5905885/pexels-photo-5905885.jpeg",
+  //   link: "https://edtech.vhackbotz.com",
+  // },
 ];
 
 export const cta = {

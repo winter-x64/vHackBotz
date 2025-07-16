@@ -85,6 +85,18 @@ export default function Works() {
                 />
               </article>
             ))}
+            <article className="project-card group/article relative w-full rounded-xl overflow-hidden md:group-hover:[&:not(:hover)]:w-[25%] md:group-focus-within:[&:not(:focus-within):not(:hover)]:w-[25%] transition-all duration-500 ease-[cubic-bezier(.3,.85,.3,1)] before:absolute before:inset-x-0 before:bottom-0 before:h-full before:bg-gradient-to-t before:from-black/90 before:to-transparent before:transition-opacity md:before:opacity-0 focus-within:before:opacity-100 after:opacity-0 md:group-hover:[&:not(:hover)]:after:opacity-100 md:group-focus-within:[&:not(:focus-within):not(:hover)]:after:opacity-100 after:absolute after:inset-0 after:bg-black/50 after:backdrop-blur-sm after:rounded-lg after:transition-all focus-within:ring-2 focus-within:ring-[#ff6a3d]">
+              <div className="flex flex-col items-center justify-center h-full w-full p-8">
+                <span className="text-3xl md:text-4xl font-bold text-[#ff6a3d] mb-2">
+                  Coming Soon
+                </span>
+                <p className="text-white/80 text-center text-base md:text-lg">
+                  More awesome projects are on the way. Stay tuned!
+                </p>
+              </div>
+              <div className="absolute inset-0 bg-black/10 transition-all duration-300" />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent z-10" />
+            </article>
           </div>
 
           {/* <div className="text-center mt-10">
