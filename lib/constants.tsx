@@ -159,7 +159,7 @@ export const cta = {
 };
 
 export const socialLinks = [
-  { icon: <Github className="h-5 w-5" />, href: "#", label: "Github" },
+  // { icon: <Github className="h-5 w-5" />, href: "#", label: "Github" },
   {
     icon: <Linkedin className="h-5 w-5" />,
     href: "https://www.linkedin.com/company/vhackbotz",
