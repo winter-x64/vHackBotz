@@ -1,4 +1,3 @@
-import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { InteractiveHoverButton } from "./ui/interactive-hover-button";
 import { lazy } from "react";
@@ -63,12 +62,9 @@ export default function Hero() {
                 </Link>
 
                 <Link href="#works">
-                  <Button
-                    variant="outline"
-                    className="border border-white/10 bg-white/5 backdrop-blur-xl text-white hover:bg-white/10 px-5 py-3 sm:px-8 sm:py-4 rounded-2xl font-medium transition-all duration-300 cursor-pointer w-full sm:w-auto"
-                  >
+                  <InteractiveHoverButton className="backdrop-blur-2xl bg-transparent text-white cursor-pointer w-full sm:w-auto">
                     See our work
-                  </Button>
+                  </InteractiveHoverButton>
                 </Link>
               </div>
             </div>

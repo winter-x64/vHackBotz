@@ -22,7 +22,6 @@ export const metadata: Metadata = {
   keywords: [
     "tech startup",
     "software development",
-    "AI solutions",
     "web development",
     "digital transformation",
     "tech consultancy",
@@ -31,15 +30,12 @@ export const metadata: Metadata = {
     "technology services",
     "custom software",
     "hardware solutions",
-    "IoT devices",
     "prototype development",
     "UI/UX design",
     "front-end development",
     "hardware startup",
     "electronic engineering",
     "product design",
-    "rapid prototyping",
-    "hardware-software integration",
   ],
 };
 

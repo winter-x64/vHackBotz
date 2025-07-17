@@ -10,10 +10,7 @@ const Services = lazy(() => import("@/components/Services"));
 const Works = lazy(() => import("@/components/Works"));
 const CTA = lazy(() => import("@/components/CTA"));
 const Footer = lazy(() => import("@/components/Footer"));
-
-const Loader = () => (
-  <div className="min-h-screen w-full animate-pulse bg-muted/50" />
-);
+const Loader = lazy(() => import("@/components/Loader"));
 
 export default function HomePage() {
   return (
