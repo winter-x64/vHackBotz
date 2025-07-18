@@ -27,7 +27,7 @@ export default function About() {
         <h4 className="text-xl md:text-2xl text-[#ff6a3d] font-medium mb-6">
           {aboutUs.subheadline}
         </h4>
-        <p className="text-white/80 leading-relaxed text-lg backdrop-blur-sm rounded-xl py-4">
+        <p className="text-white/80 leading-relaxed text-lg  rounded-xl py-4">
           {aboutUs.description}
         </p>
       </div>
