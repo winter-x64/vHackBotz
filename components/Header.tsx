@@ -107,7 +107,7 @@ export default function Header() {
         </div>
       </div>
 
-      <div className="md:hidden bg-black/40 backdrop-blur-md shadow-lg px-6 py-3 rounded-full border border-white border-opacity-40">
+      <div className="md:hidden bg-black/40 backdrop-blur-md shadow-lg px-6 py-3 rounded-full border border-orange-500 border-opacity-40">
         <div className="flex items-center justify-between space-x-4">
           <Link href="#hero" className="flex items-center">
             <Image
@@ -129,11 +129,27 @@ export default function Header() {
                     ? "text-orange-500"
                     : "text-gray-300"
                 }`}
-                onClick={() => {
+                onClick={(e) => {
+                  e.preventDefault();
                   setActiveSection(item.name);
+                  const element = document.getElementById(
+                    item.href.substring(1)
+                  );
+                  if (element) {
+                    const yOffset = -90;
+                    const targetPosition =
+                      element.getBoundingClientRect().top +
+                      window.scrollY +
+                      yOffset;
+
+                    window.scrollTo({
+                      top: targetPosition,
+                      behavior: "smooth",
+                    });
+                  }
                 }}
               >
-                <item.icon className="h-5 w-5" />
+                <span className="text-sm font-medium">{item.name}</span>
               </Link>
             ))}
           </nav>
