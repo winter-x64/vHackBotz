@@ -147,7 +147,7 @@ export const cta = {
   description:
     "From startup SaaS products to brand makeovers, vHackBotz helps founders build what they've always wanted. Let's create something remarkable together.",
   primaryButton: {
-    text: "Book a Free Consultation",
+    text: "Schedule a Call",
     href: "https://cal.com/vhackbotz",
     type: "calendar",
   },
