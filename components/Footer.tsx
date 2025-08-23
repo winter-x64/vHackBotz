@@ -16,7 +16,7 @@ export default function Footer() {
                 height={32}
                 className="flex-shrink-0 transition-transform group-hover:scale-105"
               />
-              <span className="font-bold text-xl title leading-none transition-colors group-hover:text-orange-500">
+              <span className="font-bold text-white text-xl title leading-none transition-colors group-hover:text-orange-500">
                 vHackBotz
               </span>
             </Link>
@@ -30,7 +30,7 @@ export default function Footer() {
               >
                 <Link
                   href={link.href}
-                  className=" hover:text-orange-500 dark:hover:text-orange-400 transition-colors duration-200 p-2 rounded-lg"
+                  className=" hover:text-orange-500 dark:hover:text-orange-400 text-white transition-colors duration-200 p-2 rounded-lg"
                   aria-label={link.label}
                 >
                   {link.icon}

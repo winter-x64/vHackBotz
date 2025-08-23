@@ -83,9 +83,9 @@ export default function Header() {
   };
 
   return (
-    <header className="fixed z-50 transition-all duration-300 w-max mx-auto left-0 right-0 top-8">
-      <div className="hidden md:block bg-black/40 backdrop-filter backdrop-blur-md shadow-lg px-8 py-3 rounded-full border border-orange-500 border-opacity-40">
-        <div className="flex items-center space-x-8 h-12">
+    <header className="fixed z-50 transition-all duration-300 w-max mx-auto left-0 right-0 top-8 text-white">
+      <div className="hidden md:block bg-black/40 backdrop-filter backdrop-blur-md shadow-lg px-8 py-3 rounded-full border border-orange-500 border-opacity-40 text-white">
+        <div className="flex items-center space-x-8 h-12 text-white">
           <div className="flex items-center">
             <Link href="/" className="flex items-center space-x-1">
               <Image
@@ -95,7 +95,9 @@ export default function Header() {
                 height={32}
                 className="text-orange-500"
               />
-              <span className="font-bold text-xl title">vHackBotz</span>
+              <span className="font-bold text-white text-xl title">
+                vHackBotz
+              </span>
             </Link>
           </div>
 
@@ -107,7 +109,7 @@ export default function Header() {
         </div>
       </div>
 
-      <div className="md:hidden bg-black/40 backdrop-blur-md shadow-lg px-6 py-3 rounded-full border border-orange-500 border-opacity-40">
+      <div className="md:hidden bg-black/40 backdrop-blur-md shadow-lg px-6 py-3 rounded-full border border-orange-500 border-opacity-40 text-white">
         <div className="flex items-center justify-between space-x-4">
           <Link href="#hero" className="flex items-center">
             <Image
@@ -125,9 +127,7 @@ export default function Header() {
                 key={item.name}
                 href={item.href}
                 className={`flex items-center ${
-                  activeSection === item.name
-                    ? "text-orange-500"
-                    : "text-gray-300"
+                  activeSection === item.name ? "text-orange-500" : "text-white"
                 }`}
                 onClick={(e) => {
                   e.preventDefault();
@@ -149,7 +149,9 @@ export default function Header() {
                   }
                 }}
               >
-                <span className="text-sm font-medium">{item.name}</span>
+                <span className="text-sm text-white font-medium">
+                  {item.name}
+                </span>
               </Link>
             ))}
           </nav>

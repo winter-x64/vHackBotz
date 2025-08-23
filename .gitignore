@@ -12,3 +12,4 @@ coverage
 .idea
 *.local
 *.log
+next-env.d.ts

@@ -1,7 +1,6 @@
 import "./globals.css";
 import type { Metadata } from "next";
 import { Montserrat, Raleway } from "next/font/google";
-import { ThemeProvider } from "@/app/theme-provider";
 import Background from "@/components/ui/background";
 
 const montserrat = Montserrat({
@@ -50,15 +49,8 @@ export default function RootLayout({
         <link rel="icon" href="/vhackbotz.svg" sizes="any" />
       </head>
       <body className={`${montserrat.className} ${raleway.variable}`}>
-        <ThemeProvider
-          attribute="class"
-          defaultTheme="dark"
-          enableSystem
-          disableTransitionOnChange
-        >
           <Background />
           <main>{children}</main>
-        </ThemeProvider>
       </body>
     </html>
   );
