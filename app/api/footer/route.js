@@ -1,7 +1,7 @@
 export async function GET() {
   return new Response(
     JSON.stringify({
-      message: "Designed & Developed by vHackBotz",
+      message: "Designed & Developed by MetaLoom",
       link: "https://vhackbotz.vercel.app",
     }),
     {
